@@ -4,7 +4,7 @@
       <logo-container />
     </div>
     <div class="main">
-      <!--<input-container />-->
+      <input-container />
       <heatmap-container />
     </div>
   </div>
@@ -12,14 +12,14 @@
 
 <script>
 // @ is an alias to /src
-// import InputContainer from '@/components/InputContainer.vue';
+import InputContainer from '@/components/InputContainer.vue';
 import HeatmapContainer from '@/components/HeatmapContainer.vue';
 import LogoContainer from '@/components/LogoContainer.vue';
 
 export default {
   components: {
     HeatmapContainer,
-    // InputContainer,
+    InputContainer,
     LogoContainer,
   },
 };
@@ -30,7 +30,6 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /*text-align: center;*/
     color: #2c3e50;
     width: 99vw;
     height: 100vh;
