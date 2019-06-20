@@ -1,0 +1,7 @@
+scratch/
+venv/
+
+data/*.pdf
+data/*.tsv
+
+.idea/
