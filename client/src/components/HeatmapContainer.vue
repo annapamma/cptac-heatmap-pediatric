@@ -9,6 +9,9 @@
     <button @click="sort(ascending=false)" style="background-color: lightgray;">
       Sort {{ this.series.length ? `by: ${this.series} descending` : '' }}
     </button>
+    <button @click="goToSingleDisease('all')" style="background-color: lightgray;">
+      All Diagnoses
+    </button>
     </div>
     <div class="buttons-and-legend">
     <button @click="goToSingleDisease('Ependymoma')" style="background-color: #00FF40;">
