@@ -1,10 +1,12 @@
 import pickle
 
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
 
-# cptac_ccrcc = pickle.load(open('./data/cptac-ccrcc.pkl', 'rb')).to_dict()
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+
 proteins = pickle.load(open('../data/proteo.pkl', 'rb'))
 available_proteins = set(proteins.index)
 
