@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     disease() {
-      return this.$store.state.selectedDisease
+      return this.$store.state.selectedDisease;
     },
     cases() {
       const diseaseMapping = {
@@ -89,7 +89,7 @@ export default {
 <style lang="css">
   .disease-all {
     background-color: white;
-    width: 100%;
+    width: 97%;
     height: 100vh;
   }
 
