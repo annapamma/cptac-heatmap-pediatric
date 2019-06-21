@@ -36,24 +36,25 @@ export default {
       ];
 
       for (let i = 0; i < combinations.length; i++) {
-          let c = combinations[i];
-          if (trimmedGeneList.includes(c[0]) && trimmedGeneList.includes(c[1])) {
-              alert('Enter genes separated by a newline, tab, or space. ' +
-                  'Your list seems to include multiple separators.');
-              return [];
-          }
+        let c = combinations[i];
+        if (trimmedGeneList.includes(c[0]) && trimmedGeneList.includes(c[1])) {
+          //TODO: change alert to line after visualize button
+          alert('Enter genes separated by a newline, tab, or space. '
+            + 'Your list seems to include multiple separators.');
+          return [];
+        }
       }
 
       if (trimmedGeneList.includes('\t')) {
-          geneListArr = trimmedGeneList.split('\t');
+        geneListArr = trimmedGeneList.split('\t');
       } else if (trimmedGeneList.includes(' ')) {
-          geneListArr = trimmedGeneList.split(' ');
+        geneListArr = trimmedGeneList.split(' ');
       } else if (trimmedGeneList.includes(';')) {
-          geneListArr = trimmedGeneList.split(';');
+        geneListArr = trimmedGeneList.split(';');
       } else if (trimmedGeneList.includes(',')) {
-          geneListArr = trimmedGeneList.split(',');
+        geneListArr = trimmedGeneList.split(',');
       } else {
-          geneListArr = trimmedGeneList.split('\n')
+        geneListArr = trimmedGeneList.split('\n');
       }
 
       return [...new Set(geneListArr)];
@@ -61,9 +62,13 @@ export default {
   },
   methods: {
     submitGenes() {
-      console.log(this.genes)
-    }
-  }
+      if (!this.genes.length) {
+        alert('Please enter genes.');
+        return;
+      }
+      this.$store.dispatch('submitGenes', this.genes.join('%20'));
+    },
+  },
 };
 </script>
 
