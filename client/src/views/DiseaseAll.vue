@@ -50,7 +50,7 @@ export default {
             data: this.$store.state[name].filter(el => this.cases[el.x]),
           }
       );
-      const blankRow = { name: '', data: [] };
+      const blankRow = { name: ' ', data: [] };
       const { proteo } = this.$store.state;
       const proteins = this.disease === 'all'
         ? Object
