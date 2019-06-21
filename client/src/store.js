@@ -83,8 +83,8 @@ export default new Vuex.Store({
       state.sortOrder = sorted.map(el => el.x);
     },
     UPDATE_SELECTED_DISEASE (state, disease) {
-      state.selectedDisease = disease
-    }
+      state.selectedDisease = disease;
+    },
   },
   actions: {
     sortSamples(store, { ascending, series }) {
@@ -96,6 +96,6 @@ export default new Vuex.Store({
     },
     selectDisease(store, disease) {
       store.commit('UPDATE_SELECTED_DISEASE', disease);
-    }
+    },
   },
 });
