@@ -35,5 +35,9 @@ def proteo(genes_input):
             for (sample, zscore) in protein_z_scores[gene].items()
         ]
 
-    return jsonify({'proteo': reshaped})
+    return jsonify({
+        'proteo': reshaped,
+        'proteins_found': True
+        }
+    )
 
