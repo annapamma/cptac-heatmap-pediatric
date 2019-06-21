@@ -1,6 +1,7 @@
 <template>
   <div class="input-text-area">
       <textarea v-model="geneInput" id="gene-input" :placeholder="'Paste gene list'"></textarea>
+      <button @click="submitGenes">Visualize</button>
   </div>
 </template>
 
@@ -12,13 +13,63 @@ export default {
       geneInput: '',
     };
   },
+  computed: {
+    genes () {
+      const trimmedGeneList = this.geneInput.trim().toUpperCase();
+      let geneListArr = [];
+
+      if (trimmedGeneList.length === 0) {
+          return []
+      }
+
+      const combinations = [
+          ['\t', ' '],
+          ['\t', '\n'],
+          ['\t', ','],
+          ['\n', ' '],
+          ['\n', ','],
+          [' ', ','],
+          [';', ','],
+          [';', '\t'],
+          [';', '\n'],
+          [';', ' ']
+      ];
+
+      for (let i = 0; i < combinations.length; i++) {
+          let c = combinations[i];
+          if (trimmedGeneList.includes(c[0]) && trimmedGeneList.includes(c[1])) {
+              alert('Enter genes separated by a newline, tab, or space. ' +
+                  'Your list seems to include multiple separators.');
+              return [];
+          }
+      }
+
+      if (trimmedGeneList.includes('\t')) {
+          geneListArr = trimmedGeneList.split('\t');
+      } else if (trimmedGeneList.includes(' ')) {
+          geneListArr = trimmedGeneList.split(' ');
+      } else if (trimmedGeneList.includes(';')) {
+          geneListArr = trimmedGeneList.split(';');
+      } else if (trimmedGeneList.includes(',')) {
+          geneListArr = trimmedGeneList.split(',');
+      } else {
+          geneListArr = trimmedGeneList.split('\n')
+      }
+
+      return [...new Set(geneListArr)];
+    },
+  },
+  methods: {
+    submitGenes() {
+      console.log(this.genes)
+    }
+  }
 };
 </script>
 
 <style scoped>
   .input-text-area {
     width: 80%;
-    /*background-color: lightblue;*/
     margin: 10px auto;
   }
 
