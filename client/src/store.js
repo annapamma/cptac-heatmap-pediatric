@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import axios from 'axios'
+
 import fakeData from './fakeData';
 
 Vue.use(Vuex);
@@ -85,6 +87,9 @@ export default new Vuex.Store({
     UPDATE_SELECTED_DISEASE (state, disease) {
       state.selectedDisease = disease;
     },
+    UPDATE_PROTEO (state, proteo) {
+      state.proteo = proteo
+    }
   },
   actions: {
     sortSamples(store, { ascending, series }) {
@@ -96,6 +101,15 @@ export default new Vuex.Store({
     },
     selectDisease(store, disease) {
       store.commit('UPDATE_SELECTED_DISEASE', disease);
+    },
+    submitGenes: function (store, genes) {
+      axios.get(
+        `http://127.0.0.1:5000/api/proteo/${genes}`
+      ).then(
+        (res) => res.data['proteins_found']
+          ? store.commit('UPDATE_PROTEO', res.data['proteo'])
+          : store.commit('ALERT_NO_PROTEINS')
+      )
     },
   },
 });
