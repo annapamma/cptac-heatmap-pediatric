@@ -31,10 +31,6 @@
       Ganglioglioma
     </button>
     <button @click="goToSingleDisease('LGG')" style="background-color: #9F72FF;">LGG</button>
-    <img src="../assets/legend.jpg"
-         style="background-color: #00FFFF; width: 85%; text-align: center; display: block;
-         margin-left: auto;
-         margin-right: auto;"/>
     </div>
   </div>
 </template>
