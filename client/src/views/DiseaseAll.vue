@@ -1,6 +1,6 @@
 <template>
   <div class="disease-all">
-    <apexchart type=heatmap height="300" :options="chartOptionsClinical" :series="clinicalSeries" />
+    <apexchart type=heatmap :height="height" :options="chartOptionsClinical" :series="clinicalSeries" />
   </div>
 </template>
 
@@ -18,8 +18,11 @@ export default {
     };
   },
   computed: {
+    height() {
+      return this.clinicalSeries.length * 20;
+    },
     disease() {
-      return this.$store.state.selectedDisease
+      return this.$store.state.selectedDisease;
     },
     cases() {
       const diseaseMapping = {
@@ -50,7 +53,7 @@ export default {
             data: this.$store.state[name].filter(el => this.cases[el.x]),
           }
       );
-      const blankRow = { name: '', data: [] };
+      const blankRow = { name: ' ', data: [] };
       const { proteo } = this.$store.state;
       const proteins = this.disease === 'all'
         ? Object
@@ -83,13 +86,34 @@ export default {
       this.$router.push(`/${disease}`);
     },
   },
+  mounted() {
+    const legendImg = document.createElement('img');
+    legendImg.src = require('@/assets/legend.jpg');
+    legendImg.style = 'background-color: #00FFFF; '
+      + 'max-width: 1000px; '
+      + 'min-width: 400px; '
+      + 'text-align: center; '
+      + 'display: block; '
+      + 'margin-left: auto; '
+      + 'margin-right: auto;';
+    const parentNode = document.querySelector('.disease-all');
+    parentNode.append(legendImg);
+  },
 };
 </script>
 
 <style lang="css">
+  .apexcharts-canvas {
+    height: 100%;
+  }
+
+  .apexcharts-legend {
+    height: 100%;
+  }
+
   .disease-all {
     background-color: white;
-    width: 100%;
+    width: 97%;
     height: 100vh;
   }
 
