@@ -1,7 +1,9 @@
+import io
 import pickle
 
 from flask import Flask, jsonify
 from flask_cors import CORS
+
 
 app = Flask(__name__)
 
@@ -12,6 +14,7 @@ available_proteins = set(proteins.index)
 
 clinical = pickle.load(open('../data/clinical.pkl', 'rb'))
 clusters = pickle.load(open('../data/clusters.pkl', 'rb'))
+
 
 @app.route("/")
 def hello():
@@ -42,4 +45,3 @@ def proteo(genes_input):
         'proteins_found': True
         }
     )
-
