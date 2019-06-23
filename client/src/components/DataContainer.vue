@@ -15,7 +15,7 @@ export default {
   .data-container {
     width: 80%;
     height: 20%;
-    background-color: orange;
+    /*background-color: orange;*/
     margin: 10px auto;
   }
 </style>
