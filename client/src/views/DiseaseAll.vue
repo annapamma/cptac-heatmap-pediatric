@@ -1,6 +1,6 @@
 <template>
   <div class="disease-all">
-    <apexchart type=heatmap height="300" :options="chartOptionsClinical" :series="clinicalSeries" />
+    <apexchart type=heatmap :height="height" :options="chartOptionsClinical" :series="clinicalSeries" />
   </div>
 </template>
 
@@ -18,6 +18,9 @@ export default {
     };
   },
   computed: {
+    height() {
+      return this.clinicalSeries.length * 20;
+    },
     disease() {
       return this.$store.state.selectedDisease;
     },
