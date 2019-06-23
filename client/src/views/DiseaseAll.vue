@@ -84,18 +84,18 @@ export default {
     },
   },
   mounted() {
-    let legendImg = document.createElement("img");
-    legendImg.src = require("@/assets/legend.jpg");
-    legendImg.style = "background-color: #00FFFF; " +
-      "max-width: 1000px; " +
-      "min-width: 400px; " +
-      "text-align: center; " +
-      "display: block; " +
-      "margin-left: auto; " +
-      "margin-right: auto;";
-    let parentNode = document.querySelector('.disease-all');
+    const legendImg = document.createElement('img');
+    legendImg.src = require('@/assets/legend.jpg');
+    legendImg.style = 'background-color: #00FFFF; '
+      + 'max-width: 1000px; '
+      + 'min-width: 400px; '
+      + 'text-align: center; '
+      + 'display: block; '
+      + 'margin-left: auto; '
+      + 'margin-right: auto;';
+    const parentNode = document.querySelector('.disease-all');
     parentNode.append(legendImg);
-  }
+  },
 };
 </script>
 
