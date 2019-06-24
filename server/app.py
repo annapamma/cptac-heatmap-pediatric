@@ -1,12 +1,14 @@
 import pickle
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, safe_join, send_from_directory
 from flask_cors import CORS
 
+STATIC_DIR = '../client/dist/'
+ASSETS_DIR = './assets'
 
 app = Flask(__name__,
-            # static_folder="../client/dist",
-            template_folder="../client/dist"
+            static_folder=STATIC_DIR,
+            # template_folder="../client/dist"
             )
 
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -54,8 +56,11 @@ def proteo(genes_input):
     )
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    return render_template("index.html")
+@app.route('/')
+def catch_all():
+    return app.send_static_file("index.html")
 
+
+@app.route('/assets/<path:path>')
+def send_assets(path):
+    return send_from_directory(safe_join(STATIC_DIR, ASSETS_DIR), path)
