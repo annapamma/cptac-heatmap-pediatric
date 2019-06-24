@@ -1,11 +1,13 @@
-import io
 import pickle
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 
 
-app = Flask(__name__)
+app = Flask(__name__,
+            # static_folder="../client/dist",
+            template_folder="../client/dist"
+            )
 
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
@@ -16,9 +18,14 @@ clinical = pickle.load(open('../data/clinical.pkl', 'rb'))
 clusters = pickle.load(open('../data/clusters.pkl', 'rb'))
 
 
-@app.route("/")
-def hello():
-    return jsonify({'hi': 'world'})
+# @app.route("/")
+# def hello():
+#     client_bp = Blueprint('client_app', __name__,
+#                           url_prefix='',
+#                           static_url_path='',
+#                           static_folder='../dist/static/',
+#                           template_folder='../dist/',
+#                           )
 
 
 # input: array of genes
@@ -45,3 +52,10 @@ def proteo(genes_input):
         'proteins_found': True
         }
     )
+
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return render_template("index.html")
+
