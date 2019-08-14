@@ -3,7 +3,9 @@ import Vuex from 'vuex';
 
 import axios from 'axios';
 
-import landingData from './landingData';
+import landingData from './landingData.js';
+import landingDataProteo from './landingDataProteo.js';
+// const landingData = {}
 
 Vue.use(Vuex);
 
@@ -11,27 +13,34 @@ export default new Vuex.Store({
   state: {
     clinicalTracks: [
       'Last Known Clinical Status',
-      'HGG_H3FA status',
+      'HGG_H3F3A status',
       'CTNNB1 status',
       'LGG_BRAF status',
       'Ependymoma_RELA status',
       'grade',
       'diagnosis',
+      'Tumor location',
       'rna cl',
       'phospho cl',
       'cl col',
     ],
     'Last Known Clinical Status': landingData['Last Known Clinical Status'],
-    'HGG_H3FA status': landingData['HGG_H3FA status'],
+    'HGG_H3F3A status': landingData['HGG_H3F3A status'],
     'CTNNB1 status': landingData['CTNNB1 status'],
     'LGG_BRAF status': landingData['LGG_BRAF status'],
     'Ependymoma_RELA status': landingData['Ependymoma_RELA status'],
     'rna cl': landingData['rna cl'],
     'phospho cl': landingData['phospho cl'],
     'cl col': landingData['cl col'],
-    proteo: landingData.proteo,
+    'Tumor location': landingData['Tumor location'],
+    // phospho: landingData.phospho,
+    // proteo: landingData.proteo,
     grade: landingData.grade,
     diagnosis: landingData.diagnosis,
+    // phospho: {},
+    proteo: landingDataProteo,
+    // grade: {},
+    // diagnosis: {},
     selectedDisease: 'all',
     selectedSeries: '',
     selectedSample: '',
@@ -51,7 +60,8 @@ export default new Vuex.Store({
 
       state.diagnosis = state.diagnosis.slice().sort(sortByIndex);
       state['Last Known Clinical Status'] = state['Last Known Clinical Status'].slice().sort(sortByIndex);
-      state['HGG_H3FA status'] = state['HGG_H3FA status'].slice().sort(sortByIndex);
+      state['Tumor location'] = state['Tumor location'].slice().sort(sortByIndex);
+      state['HGG_H3F3A status'] = state['HGG_H3F3A status'].slice().sort(sortByIndex);
       state['CTNNB1 status'] = state['CTNNB1 status'].slice().sort(sortByIndex);
       state['LGG_BRAF status'] = state['LGG_BRAF status'].slice().sort(sortByIndex);
       state['Ependymoma_RELA status'] = state['Ependymoma_RELA status'].slice().sort(sortByIndex);

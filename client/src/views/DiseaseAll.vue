@@ -5,11 +5,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import chartOptions from '@/heatmap_specs/chartOptions';
 import colorScale from '@/heatmap_specs/colorScale';
 
-// TODO: add data point selection event as computed property
 export default {
   name: 'DiseaseAll',
   data() {
@@ -19,7 +17,7 @@ export default {
   },
   computed: {
     height() {
-      return this.clinicalSeries.length * 20;
+      return this.clinicalSeries.length * 18;
     },
     disease() {
       return this.$store.state.selectedDisease;
@@ -54,14 +52,14 @@ export default {
           }
       );
       const blankRow = { name: ' ', data: [] };
-      const { proteo } = this.$store.state;
+      const { phospho, proteo } = this.$store.state;
       const proteins = this.disease === 'all'
         ? Object
           .entries(proteo)
-          .map(gene => ({ name: gene[0], data: gene[1] }))
+          .map(gene => ({ name: `${gene[0]} proteo`, data: gene[1] }))
         : Object
           .entries(proteo)
-          .map(gene => ({ name: gene[0], data: gene[1].filter(el => this.cases[el.x]) }));
+          .map(gene => ({ name: `${gene[0]} proteo`, data: gene[1].filter(el => this.cases[el.x]) }));
       return [
         ...proteins,
         blankRow,
@@ -69,17 +67,16 @@ export default {
         series('phospho cl'),
         series('rna cl'),
         blankRow,
+        series('Tumor location'),
         series('diagnosis'),
         series('grade'),
         series('Ependymoma_RELA status'),
         series('LGG_BRAF status'),
         series('CTNNB1 status'),
-        series('HGG_H3FA status'),
+        series('HGG_H3F3A status'),
         series('Last Known Clinical Status'),
       ];
     },
-  },
-  components: {
   },
   methods: {
     goToSingleDisease(disease) {

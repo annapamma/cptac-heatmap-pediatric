@@ -152,6 +152,27 @@ const colorsRanges = {
   1050: '#BEAED4', // cl cl 6
   1051: '#7FC97F', // cl cl 7
   1052: '#666666', // cl cl 8
+  1053: '#ADF1D2', //'Cerebellar',
+  1054: '#755B69', //'Optic Pathway',
+  1055: '#97ABB1', //'Thalamus',
+  1056: '#594A26', //'Temporal Lobe',
+  1057: '#CC7E85', //'Infratentorial',
+  1058: '#6B0504', //'Optic Pathway,Suprasellar/Hypothalamic/Pituitary',
+  1059: '#E6AF2E', // Suprasellar/Hypothalamic/Pituitary',
+  1060: '#A3320B', //'Occipital Lobe,Temporal Lobe',
+  1061: '#77AF9C', //'Spinal',
+  1062: '#457B9D', //'Parietal Lobe,Temporal Lobe',
+  1063: '#E2B6CF', //'Cerebellum/Posterior Fossa',
+  1064: '#CAFFB9', //'Cortical',
+  1065: '#DF57BC', //'Frontal Lobe',
+  1066: '#BBA0B2', //'Frontal Lobe,Parietal Lobe',
+  1067: '#468189', //'Brain Stem',
+  1068: '#379634', //'Supratentorial',
+  1069: '#8EF9F3', //'Ventricles',
+  1070: '#F7D002', //'Midline',
+  1071: '#454E9E', //'spinal/posterior fossa/supratentorial',
+  1072: '#BF1A2F', // 'Thalamic/cortical',
+  1073: '#FFFFFF', // Unavailable
 };
 
 export default {
