@@ -7,17 +7,17 @@
       <button @click="goToSingleDisease('Medulloblastoma')" style="background-color: #FF7ECF;">
         Medulloblastoma
       </button>
-      <button @click="goToSingleDisease('ATRT')" style="background-color: #B30303;">
+      <button @click="goToSingleDisease('Atypical Teratoid Rhabdoid Tumor (ATRT)')" style="background-color: #B30303;">
         ATRT
       </button>
       <button @click="goToSingleDisease('Craniopharyngioma')" style="background-color: #FFBF00;">
         Craniopharyngioma
       </button>
-      <button @click="goToSingleDisease('HGG')" style="background-color: #3249DC;">HGG</button>
+      <button @click="goToSingleDisease('High-grade glioma/astrocytoma')" style="background-color: #3249DC;">HGG</button>
       <button @click="goToSingleDisease('Ganglioglioma')" style="background-color: #00FFFF;">
         Ganglioglioma
       </button>
-      <button @click="goToSingleDisease('LGG')" style="background-color: #9F72FF;">LGG</button>
+      <button @click="goToSingleDisease('Low-grade glioma/astrocytoma')" style="background-color: #9F72FF;">LGG</button>
       <button @click="goToSingleDisease('all')" style="background-color: lightgray;">
         All Diagnoses
       </button>

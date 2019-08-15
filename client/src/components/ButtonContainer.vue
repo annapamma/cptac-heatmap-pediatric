@@ -1,9 +1,11 @@
 <template>
   <div class="button-container">
     <div class="buttons-and-legend">
-      <p>Series: <div class="specific-data">{{ this.series }}</div>
-      <p>Sample: <div class="specific-data">{{ this.sample }}</div>
-      <p>Value: <div class="specific-data">{{ this.value }}</div>
+      <div class="specific-data"><b>Series:</b> {{ this.series }}</div>
+      <div class="specific-data"><b>Sample:</b> {{ this.sample }}</div>
+      <div class="specific-data"><b>Value:</b> {{ this.value }}</div>
+      <!--<p>Sample: <div class="specific-data">{{ this.sample }}</div>-->
+      <!--<p>Value: <div class="specific-data">{{ this.value }}</div>-->
       <button @click="sort(ascending=true)" style="background-color: lightgray;">
         Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}
       </button>
@@ -63,10 +65,12 @@ export default {
     width: 100%;
     border-radius: 4px;
     border: solid 1px black;
-    margin: 3px;
+    /*margin: 3px;*/
+    margin-top: 8px;
   }
 
   .button-container p {
+    font-size: small;
     text-align: justify;
     font-weight: bold;
     margin: 2px auto;
@@ -74,5 +78,8 @@ export default {
     /*font-family: "Times New Roman", Times, serif;*/
   }
 
+  .specific-data {
+    font-size: small;
+  }
 
 </style>

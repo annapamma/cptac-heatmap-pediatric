@@ -4,45 +4,13 @@ import Vuex from 'vuex';
 import axios from 'axios';
 
 import landingData from './landingData.js';
-import landingDataProteo from './landingDataProteo.js';
-// const landingData = {}
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    clinicalTracks: [
-      'Last Known Clinical Status',
-      'HGG_H3F3A status',
-      'CTNNB1 status',
-      'LGG_BRAF status',
-      'Ependymoma_RELA status',
-      'grade',
-      'diagnosis',
-      'Tumor location',
-      'rna cl',
-      'phospho cl',
-      'cl col',
-    ],
-    // 'Last Known Clinical Status': landingData['Last Known Clinical Status'],
-    // 'HGG_H3F3A status': landingData['HGG_H3F3A status'],
-    // 'CTNNB1 status': landingData['CTNNB1 status'],
-    // 'LGG_BRAF status': landingData['LGG_BRAF status'],
-    // 'Ependymoma_RELA status': landingData['Ependymoma_RELA status'],
-    // 'rna cl': landingData['rna cl'],
-    // 'phospho cl': landingData['phospho cl'],
-    // 'cl col': landingData['cl col'],
-    // 'Tumor location': landingData['Tumor location'],
-    // phospho: landingData.phospho,
-    // proteo: landingData.proteo,
-    // grade: landingData.grade,
-    // diagnosis: landingData.diagnosis,
-    // phospho: {},
-    // proteo: landingDataProteo,
-    // grade: {},
-    // diagnosis: {},
     genes: [],
-    series: [],
+    series: landingData.series,
     selectedDisease: 'all',
     selectedSeries: '',
     selectedSample: '',
@@ -90,14 +58,9 @@ export default new Vuex.Store({
     UPDATE_SELECTED_DISEASE(state, disease) {
       state.selectedDisease = disease;
     },
-    UPDATE_PROTEO(state, proteo) {
-      state.proteo = proteo;
-    },
   },
   actions: {
     sortSamples(store, { ascending, series }) {
-      console.log('in the action: ', ascending)
-      console.log('in the action: ', series)
       store.commit('SORT_SAMPLES', { ascending, series });
       store.commit('REORDER_SAMPLES');
     },
@@ -107,11 +70,10 @@ export default new Vuex.Store({
     selectDisease(store, disease) {
       store.commit('UPDATE_SELECTED_DISEASE', disease);
     },
-    submitGenes(store, { genes, sort_category, ascending } ) {
+    submitGenes(store, { genes} ) {
       store.commit('ASSIGN_GENE_LIST', genes.split('%20'));
-      // @app.route("/api/color/<genes_input>/<sort_category>/<ascending>")
       axios.get(
-        `http://127.0.0.1:5000/api/color/${genes}/${sort_category}/${ascending}`,
+        `http://127.0.0.1:5000/api/color/${genes}/`,
       ).then(
         ( { data } ) => {
           console.log('in axios call: ', data.series);

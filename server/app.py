@@ -39,26 +39,26 @@ def df_to_apex_data(color_scale_df, actual_df):
 def filtered_df(df, genes):
     return df[(df['Gene symbol'].isin(genes)) | (df['Gene symbol'] == '')]
 
-@app.route("/api/color/<genes_input>/<sort_category>/<ascending>")
-def color(genes_input, sort_category='default', ascending=1):
+@app.route("/api/color/<genes_input>/")
+def color(genes_input):
     genes = genes_input.split(' ')
-    ascending = ascending == 1
+    # ascending = ascending == 1
 
-    filtered_scale = filtered_df(color_scale, genes)
+    filtered_scale = filtered_df(color_scale, genes).drop(columns=['Data type', 'Gene symbol'])
 
-    if sort_category == 'default':
-        sort_order = filtered_scale.drop(columns=['Data type', 'Gene symbol']).columns
-    else:
-        sort_order = list(
-            filtered_scale
-                .drop(columns=['Data type', 'Gene symbol'])
-                .loc[sort_category]
-                .sort_values(ascending=ascending)
-                .index
-        )
+    # if sort_category == 'default':
+    #     sort_order = filtered_scale.drop(columns=['Data type', 'Gene symbol']).columns
+    # else:
+    #     sort_order = list(
+    #         filtered_scale
+    #             .drop(columns=['Data type', 'Gene symbol'])
+    #             .loc[sort_category]
+    #             .sort_values(ascending=ascending)
+    #             .index
+    #     )
 
-    sorted_scale = filtered_scale[sort_order]
-    series = df_to_apex_data(sorted_scale, actual_vals)
+    # sorted_scale = filtered_scale[sort_order]
+    series = df_to_apex_data(filtered_scale, actual_vals)
 
     return jsonify({
         'series': series

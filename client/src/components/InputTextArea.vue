@@ -94,8 +94,6 @@ export default {
         'submitGenes',
         {
           genes: this.genes.join('%20'),
-          sort_category: 'default',
-          ascending: 0
         }
       );
     },

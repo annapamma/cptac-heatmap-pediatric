@@ -8,7 +8,7 @@
 import chartOptions from '@/heatmap_specs/chartOptions';
 import colorScale from '@/heatmap_specs/colorScale';
 
-import testDataColor from '@/testDataColor'
+import diagnosis from '@/diagnosis'
 
 export default {
   name: 'DiseaseAll',
@@ -24,68 +24,26 @@ export default {
     disease() {
       return this.$store.state.selectedDisease;
     },
-    cases() {
-      const diseaseMapping = {
-        Ganglioglioma: 1021,
-        Ependymoma: 1022,
-        Craniopharyngioma: 1023,
-        LGG: 1024,
-        HGG: 1025,
-        ATRT: 1026,
-        Medulloblastoma: 1027,
-      };
-      const { diagnosis } = this.$store.state;
-      return diagnosis
-        .reduce((acc, el) => {
-          acc[el.x] = el.y === diseaseMapping[this.disease];
-          return acc;
-        }, {});
-    },
     clinicalSeries() {
-      return this.$store.state.series;
-      // const series = name => (
-      //   this.disease === 'all'
-      //     ? {
-      //       name,
-      //       data: this.$store.state[name],
-      //     }
-      //     : {
-      //       name,
-      //       data: this.$store.state[name].filter(el => this.cases[el.x]),
-      //     }
-      // );
-      // const blankRow = { name: ' ', data: [] };
-      // const { phospho, proteo } = this.$store.state;
-      // const proteins = this.disease === 'all'
-      //   ? Object
-      //     .entries(proteo)
-      //     .map(gene => ({ name: `${gene[0]} proteo`, data: gene[1] }))
-      //   : Object
-      //     .entries(proteo)
-      //     .map(gene => ({ name: `${gene[0]} proteo`, data: gene[1].filter(el => this.cases[el.x]) }));
-      // return [
-      //   ...proteins,
-      //   blankRow,
-      //   series('cl col'),
-      //   series('phospho cl'),
-      //   series('rna cl'),
-      //   blankRow,
-      //   series('Tumor location'),
-      //   series('diagnosis'),
-      //   series('grade'),
-      //   series('Ependymoma_RELA status'),
-      //   series('LGG_BRAF status'),
-      //   series('CTNNB1 status'),
-      //   series('HGG_H3F3A status'),
-      //   series('Last Known Clinical Status'),
-      // ];
+      const series = this.$store.state.series;
+
+      if (this.disease === 'all') {
+        return series;
+      } else {
+         return series.map(el => {
+            return {
+              name: el.name,
+              data: el.data.filter(el => diagnosis[this.disease][el.x]),
+            }
+        });
+      }
     },
   },
-  methods: {
-    goToSingleDisease(disease) {
-      this.$router.push(`/${disease}`);
-    },
-  },
+  // methods: {
+  //   goToSingleDisease(disease) {
+  //     this.$router.push(`/${disease}`);
+  //   },
+  // },
   mounted() {
     const legendImg = document.createElement('img');
     legendImg.src = require('@/assets/legend.jpg');
