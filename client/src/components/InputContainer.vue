@@ -19,7 +19,6 @@ export default {
   },
   name: 'InputContainer',
   methods: {
-    goToSingleDisease() {},
   },
 };
 </script>

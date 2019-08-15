@@ -28,13 +28,11 @@ export default {
     sample() {
       return this.$store.state.selectedSample;
     },
-    clinicalTrack() {
-      return this.$store.state.clinicalTracks.includes(this.series);
-    },
+    // clinicalTrack() {
+    //   return this.$store.state.clinicalTracks.includes(this.series);
+    // },
     value() {
-      return this.clinicalTrack
-        ? clinicalValuesMapping[this.$store.state.selectedValue]
-        : this.$store.state.selectedValue;
+      return this.$store.state.selectedValue;
     },
   },
   methods: {

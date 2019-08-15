@@ -8,52 +8,64 @@ ASSETS_DIR = './assets'
 
 app = Flask(__name__,
             static_folder=STATIC_DIR,
-            # template_folder="../client/dist"
             )
 
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-proteins = pickle.load(open('../data/proteo.pkl', 'rb'))
-available_proteins = set(proteins.index)
+color_scale = pickle.load(open('../data/color_scale.pkl', 'rb'))
+actual_vals = pickle.load(open('../data/actual.pkl', 'rb'))
 
-clinical = pickle.load(open('../data/clinical.pkl', 'rb'))
-clusters = pickle.load(open('../data/clusters.pkl', 'rb'))
+def df_to_apex_data(color_scale_df, actual_df):
+    series = [
+        {
+            'name': data_type,
+            'data': [
+                {
+                 'x': val[0], # sample ID
+                 'y': val[1], # color scale val
+                 'value': actual_df[val[0]][data_type]
+                }
+                for val in vals.items()
+            ]
+        }
+        for data_type, vals in color_scale_df.iterrows()
+    ]
+    blank_row = { 'name': '', 'data': [] }
+    series.insert(7, blank_row)
+    series.insert(11, blank_row)
+    series.insert(13, blank_row)
+    return series[::-1]
 
+def filtered_df(df, genes):
+    return df[(df['Gene symbol'].isin(genes)) | (df['Gene symbol'] == '')]
 
-# @app.route("/")
-# def hello():
-#     client_bp = Blueprint('client_app', __name__,
-#                           url_prefix='',
-#                           static_url_path='',
-#                           static_folder='../dist/static/',
-#                           template_folder='../dist/',
-#                           )
+# @app.route("/api/color/<genes_input>/<sort_category>/<ascending>")
+@app.route("/api/color/")
+def color():
+    # genes = genes_input.split(' ')
+    genes = ['KRAS']
+    sort_category = 'HGG_H3F3A status'
+    ascending = True
 
+    filtered_scale = filtered_df(color_scale, genes)
 
-# input: array of genes
-# output: dict of genes with sample names and z-scores
-# {gene: [{x: sample, y: z-score}]}
-@app.route("/api/proteo/<genes_input>")
-def proteo(genes_input):
-    genes = genes_input.split(' ')
-    proteins_found = set(genes).intersection(available_proteins)
+    if sort_category != 'default':
+        sort_order = list(
+            filtered_scale
+                .drop(columns=['Data type', 'Gene symbol'])
+                .loc[sort_category]
+                .sort_values(ascending=ascending)
+                .index
+        )
+        sorted_scale = filtered_scale[sort_order]
+        series = df_to_apex_data(sorted_scale, actual_vals)
+    else:
+        series = []
 
-    if not len(proteins_found):
-        return jsonify({'proteins_found': False})
-
-    protein_z_scores = proteins.loc[proteins_found].to_dict(orient='index')
-    reshaped = {}
-    for gene in protein_z_scores:
-        reshaped[gene] = [
-            {'x': sample, 'y': zscore}
-            for (sample, zscore) in protein_z_scores[gene].items()
-        ]
 
     return jsonify({
-        'proteo': reshaped,
-        'proteins_found': True
-        }
-    )
+        'series': series
+    })
 
 
 @app.route('/')

@@ -22,9 +22,7 @@ export default {
     excelData() {
       const { proteo, clinicalTracks } = this.$store.state;
 
-      const excelArr = clinicalTracks.map(track => {
-        return clinicalExcelData[track];
-      });
+      const excelArr = clinicalTracks.map(track => clinicalExcelData[track]);
 
       for (const gene in proteo) {
         if (proteo.hasOwnProperty(gene)) {
@@ -99,7 +97,7 @@ export default {
       const ws = utils.json_to_sheet(this.excelData, { header: excelHeaders });
       const wb = utils.book_new();
       utils.book_append_sheet(wb, ws);
-      writeFile(wb, 'meh1.xls');
+      writeFile(wb, 'CPTAC3-pbt.xls');
     },
   },
 };

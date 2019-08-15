@@ -115,9 +115,12 @@ export default new Vuex.Store({
       axios.get(
         `http://127.0.0.1:5000/api/proteo/${genes}`,
       ).then(
-        res => (res.data.proteins_found
-          ? store.commit('UPDATE_PROTEO', res.data.proteo)
-          : store.commit('ALERT_NO_PROTEINS')),
+        res => (
+          // res.data.proteins_found
+          console.log('RES: ', res)
+          // ? store.commit('UPDATE_PROTEO', res.data.proteo)
+          // : store.commit('ALERT_NO_PROTEINS')),
+        )
       );
     },
   },

@@ -1,5 +1,5 @@
 export default {
-  1000: 'Not Applicable',
+  1000: 'NA',
   1001: 'Alive',
   1002: 'Deceased-causes unavailable',
   1003: 'Deceased-due to disease',
@@ -73,4 +73,6 @@ export default {
   1071: 'spinal/posterior fossa/supratentorial',
   1072: 'Thalamic/cortical',
   1073: 'Unavailable',
+  1074: 'Mutant',
+  1075: 'Wild Type',
 };

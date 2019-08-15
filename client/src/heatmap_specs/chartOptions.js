@@ -13,7 +13,7 @@ export default (colorScale, ctx) => ({
         const { seriesIndex } = config;
         const selectedSeries = chartContext.series.w.config.series[seriesIndex].name;
         const selectedSample = chartContext.series.w.config.series[seriesIndex].data[dataPointIndex].x;
-        const selectedValue = chartContext.series.w.config.series[seriesIndex].data[dataPointIndex].y;
+        const selectedValue = chartContext.series.w.config.series[seriesIndex].data[dataPointIndex].value;
         ctx.$store.dispatch(
           'updateSelectedDataPoint',
           {
@@ -27,7 +27,6 @@ export default (colorScale, ctx) => ({
   },
   plotOptions: {
     heatmap: {
-      // shadeIntensity: 1,
       radius: 0,
       padding: 1,
       enableShades: false,

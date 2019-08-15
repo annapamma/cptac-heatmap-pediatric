@@ -99,7 +99,7 @@ const zscoreRanges = [{
 ];
 
 const colorsRanges = {
-  1000: '#f5f5f5', // Not applicable
+  1000: '#ffffff', // Not applicable
   1001: '#7FC97F', // Last Known Clinical Status: Alive
   1002: '#BEAED4', // Last Known Clinical Status: Deceased-causes unavailable
   1003: '#F0027F', // Last Known Clinical Status: Deceased-due to disease
@@ -173,6 +173,8 @@ const colorsRanges = {
   1071: '#454E9E', //'spinal/posterior fossa/supratentorial',
   1072: '#BF1A2F', // 'Thalamic/cortical',
   1073: '#FFFFFF', // Unavailable
+  1074: '#0006a1', // Mutation
+  1075: '#d6dfe6', // Wild Type
 };
 
 export default {

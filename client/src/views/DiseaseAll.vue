@@ -8,6 +8,8 @@
 import chartOptions from '@/heatmap_specs/chartOptions';
 import colorScale from '@/heatmap_specs/colorScale';
 
+import testDataColor from '@/testDataColor'
+
 export default {
   name: 'DiseaseAll',
   data() {
@@ -40,42 +42,43 @@ export default {
         }, {});
     },
     clinicalSeries() {
-      const series = name => (
-        this.disease === 'all'
-          ? {
-            name,
-            data: this.$store.state[name],
-          }
-          : {
-            name,
-            data: this.$store.state[name].filter(el => this.cases[el.x]),
-          }
-      );
-      const blankRow = { name: ' ', data: [] };
-      const { phospho, proteo } = this.$store.state;
-      const proteins = this.disease === 'all'
-        ? Object
-          .entries(proteo)
-          .map(gene => ({ name: `${gene[0]} proteo`, data: gene[1] }))
-        : Object
-          .entries(proteo)
-          .map(gene => ({ name: `${gene[0]} proteo`, data: gene[1].filter(el => this.cases[el.x]) }));
-      return [
-        ...proteins,
-        blankRow,
-        series('cl col'),
-        series('phospho cl'),
-        series('rna cl'),
-        blankRow,
-        series('Tumor location'),
-        series('diagnosis'),
-        series('grade'),
-        series('Ependymoma_RELA status'),
-        series('LGG_BRAF status'),
-        series('CTNNB1 status'),
-        series('HGG_H3F3A status'),
-        series('Last Known Clinical Status'),
-      ];
+      return testDataColor.series;
+      // const series = name => (
+      //   this.disease === 'all'
+      //     ? {
+      //       name,
+      //       data: this.$store.state[name],
+      //     }
+      //     : {
+      //       name,
+      //       data: this.$store.state[name].filter(el => this.cases[el.x]),
+      //     }
+      // );
+      // const blankRow = { name: ' ', data: [] };
+      // const { phospho, proteo } = this.$store.state;
+      // const proteins = this.disease === 'all'
+      //   ? Object
+      //     .entries(proteo)
+      //     .map(gene => ({ name: `${gene[0]} proteo`, data: gene[1] }))
+      //   : Object
+      //     .entries(proteo)
+      //     .map(gene => ({ name: `${gene[0]} proteo`, data: gene[1].filter(el => this.cases[el.x]) }));
+      // return [
+      //   ...proteins,
+      //   blankRow,
+      //   series('cl col'),
+      //   series('phospho cl'),
+      //   series('rna cl'),
+      //   blankRow,
+      //   series('Tumor location'),
+      //   series('diagnosis'),
+      //   series('grade'),
+      //   series('Ependymoma_RELA status'),
+      //   series('LGG_BRAF status'),
+      //   series('CTNNB1 status'),
+      //   series('HGG_H3F3A status'),
+      //   series('Last Known Clinical Status'),
+      // ];
     },
   },
   methods: {
