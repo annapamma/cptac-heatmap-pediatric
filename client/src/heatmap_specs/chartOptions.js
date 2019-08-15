@@ -42,6 +42,13 @@ export default (colorScale, ctx) => ({
         type: 'none',
       },
     },
+    active: {
+      allowMultipleDataPointsSelection: false,
+      filter: {
+        type: 'none',
+        value: 0
+      }
+    }
   },
   legend: {
     show: false,

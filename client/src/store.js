@@ -76,7 +76,6 @@ export default new Vuex.Store({
         `http://127.0.0.1:5000/api/color/${genes}/`,
       ).then(
         ( { data } ) => {
-          console.log('in axios call: ', data.series);
           store.commit('ASSIGN_SERIES', data.series)
         }
       );
