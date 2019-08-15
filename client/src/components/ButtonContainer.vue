@@ -5,24 +5,23 @@
       <p>Sample: <div class="specific-data">{{ this.sample }}</div>
       <p>Value: <div class="specific-data">{{ this.value }}</div>
       <button @click="sort(ascending=true)" style="background-color: lightgray;">
-        Sort {{ this.series.length ? `by: ${this.series} ascending` : '' }}
+        Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}
       </button>
       <button @click="sort(ascending=false)" style="background-color: lightgray;">
-        Sort {{ this.series.length ? `by: ${this.series} descending` : '' }}
+        Sort {{ this.series.length ? `by ${this.series}: descending` : '' }}
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import clinicalValuesMapping from '@/heatmap_specs/clinicalValuesMapping';
-
 export default {
   components: {
   },
   name: 'ButtonContainer',
   computed: {
     series() {
+      console.log('selected series: ', this.$store.state.selectedSeries);
       return this.$store.state.selectedSeries;
     },
     sample() {
@@ -31,16 +30,20 @@ export default {
     value() {
       return this.$store.state.selectedValue;
     },
+    genes() {
+      return this.$store.state.genes;
+    }
   },
   methods: {
     sort(ascending) {
-      if (this.series) {
+      console.log('clicked button!')
+      if (this.series.length || this.series === 'rna cl') {
         this.$store.dispatch(
           'sortSamples',
           {
-            ascending,
             series: this.series,
-          },
+            ascending
+          }
         );
       }
     },

@@ -2,18 +2,15 @@
   <div class="input-container">
     <input-text-area />
     <button-container />
-    <data-container />
   </div>
 </template>
 
 <script>
 import ButtonContainer from './ButtonContainer.vue';
 import InputTextArea from './InputTextArea.vue';
-import DataContainer from './DataContainer.vue';
 
 export default {
   components: {
-    DataContainer,
     ButtonContainer,
     InputTextArea,
   },
