@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import clinicalExcelData from '@/excelData';
-
 import { utils, writeFile } from 'xlsx';
 
 export default {
@@ -20,23 +18,24 @@ export default {
   },
   computed: {
     excelData() {
-      const { proteo, clinicalTracks } = this.$store.state;
-
-      const excelArr = clinicalTracks.map(track => clinicalExcelData[track]);
-
-      for (const gene in proteo) {
-        if (proteo.hasOwnProperty(gene)) {
-          const geneObj = { 'Gene symbol': gene, 'Data type': 'proteo' };
-          for (const entry in proteo[gene]) {
-            if (proteo[gene].hasOwnProperty(entry)) {
-              geneObj[proteo[gene][entry].x] = proteo[gene][entry].y;
-            }
-          }
-          excelArr.push(geneObj);
-        }
-      }
-
-      return excelArr;
+      return this.$store.state.excelData;
+      // const { proteo, clinicalTracks } = this.$store.state;
+      //
+      // const excelArr = clinicalTracks.map(track => clinicalExcelData[track]);
+      //
+      // for (const gene in proteo) {
+      //   if (proteo.hasOwnProperty(gene)) {
+      //     const geneObj = { 'Gene symbol': gene, 'Data type': 'proteo' };
+      //     for (const entry in proteo[gene]) {
+      //       if (proteo[gene].hasOwnProperty(entry)) {
+      //         geneObj[proteo[gene][entry].x] = proteo[gene][entry].y;
+      //       }
+      //     }
+      //     excelArr.push(geneObj);
+      //   }
+      // }
+      //
+      // return excelArr;
     },
     genes() {
       const trimmedGeneList = this.geneInput.trim().toUpperCase();
@@ -98,11 +97,18 @@ export default {
       );
     },
     downloadExcel() {
-      const excelHeaders = ['Data type', 'Gene symbol', ...this.$store.state.sortOrder];
-      const ws = utils.json_to_sheet(this.excelData, { header: excelHeaders });
-      const wb = utils.book_new();
-      utils.book_append_sheet(wb, ws);
-      writeFile(wb, 'CPTAC3-pbt.xls');
+      this.$store.dispatch(
+        'getExcelData',
+        {
+          genes: this.genes.join('%20'),
+        }
+      );
+      // console.log('in dl button: ', this.$store.state.excelData);
+      // // const excelHeaders = ['Data type', 'Gene symbol', ...this.$store.state.sortOrder];
+      // const ws = utils.json_to_sheet(this.excelData, { header: excelHeaders });
+      // const wb = utils.book_new();
+      // utils.book_append_sheet(wb, ws);
+      // writeFile(wb, 'CPTAC3-pbt.xls');
     },
   },
 };
@@ -118,10 +124,6 @@ export default {
     width: 97%;
     min-height: 150px;
     margin: 0 auto;
-    /*margin-left: 0;*/
-    /*margin-right: 0;*/
-    /*margin-top: 10px;*/
-    /*margin-bottom: 2px;*/
     border: 1px solid black;
   }
 

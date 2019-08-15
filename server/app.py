@@ -42,26 +42,27 @@ def filtered_df(df, genes):
 @app.route("/api/color/<genes_input>/")
 def color(genes_input):
     genes = genes_input.split(' ')
-    # ascending = ascending == 1
 
     filtered_scale = filtered_df(color_scale, genes).drop(columns=['Data type', 'Gene symbol'])
 
-    # if sort_category == 'default':
-    #     sort_order = filtered_scale.drop(columns=['Data type', 'Gene symbol']).columns
-    # else:
-    #     sort_order = list(
-    #         filtered_scale
-    #             .drop(columns=['Data type', 'Gene symbol'])
-    #             .loc[sort_category]
-    #             .sort_values(ascending=ascending)
-    #             .index
-    #     )
-
-    # sorted_scale = filtered_scale[sort_order]
     series = df_to_apex_data(filtered_scale, actual_vals)
 
     return jsonify({
         'series': series
+    })
+
+@app.route("/api/table/<genes_input>/")
+def table(genes_input):
+    genes = genes_input.split(' ')
+
+    filtered_scale = filtered_df(actual_vals, genes)
+    df_list = filtered_scale.to_dict(orient='records')
+
+    for i, row in enumerate(df_list):
+        row['idx'] = filtered_scale.index[i]
+
+    return jsonify({
+        'excelData': df_list
     })
 
 

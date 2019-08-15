@@ -2,22 +2,29 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import axios from 'axios';
+import { utils, writeFile } from 'xlsx';
 
 import landingData from './landingData.js';
+import initialSortOrder from '@/initialSortOrder';
+import excelDataTest from '@/excelDataTest';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    excelData: {},
     genes: [],
     series: landingData.series,
     selectedDisease: 'all',
     selectedSeries: '',
     selectedSample: '',
     selectedValue: '',
-    sortOrder: []
+    sortOrder: initialSortOrder
   },
   mutations: {
+    ASSIGN_EXCEL_DATA(state, excelData) {
+      state.excelData = excelData;
+    },
     ASSIGN_GENE_LIST(state, genes) {
       state.genes = genes;
     },
@@ -60,6 +67,25 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    getExcelData(store, { genes }) {
+      axios.get(
+        `http://127.0.0.1:5000/api/table/${genes}/`,
+      ).then(
+        ( { data } ) => {
+          // store.commit('ASSIGN_EXCEL_DATA', data.excelData);
+          // console.log('in action: ', data.excelData);
+          const ws = utils.json_to_sheet(
+            data.excelData,
+            {
+              header: ['idx', 'Data type', 'Gene symbol', ...store.state.sortOrder]
+            }
+          );
+          const wb = utils.book_new();
+          utils.book_append_sheet(wb, ws);
+          writeFile(wb, 'CPTAC3-pbt.xls');
+        }
+      );
+    },
     sortSamples(store, { ascending, series }) {
       store.commit('SORT_SAMPLES', { ascending, series });
       store.commit('REORDER_SAMPLES');

@@ -4,8 +4,6 @@
       <div class="specific-data"><b>Series:</b> {{ this.series }}</div>
       <div class="specific-data"><b>Sample:</b> {{ this.sample }}</div>
       <div class="specific-data"><b>Value:</b> {{ this.value }}</div>
-      <!--<p>Sample: <div class="specific-data">{{ this.sample }}</div>-->
-      <!--<p>Value: <div class="specific-data">{{ this.value }}</div>-->
       <button @click="sort(ascending=true)" style="background-color: lightgray;">
         Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}
       </button>
@@ -57,7 +55,6 @@ export default {
   .button-container {
     width: 80%;
     height: 30%;
-    /*background-color: lightcyan;*/
     margin: 10px auto;
   }
 
@@ -65,7 +62,6 @@ export default {
     width: 100%;
     border-radius: 4px;
     border: solid 1px black;
-    /*margin: 3px;*/
     margin-top: 8px;
   }
 
@@ -75,11 +71,9 @@ export default {
     font-weight: bold;
     margin: 2px auto;
     padding: 2px;
-    /*font-family: "Times New Roman", Times, serif;*/
   }
 
   .specific-data {
     font-size: small;
   }
-
 </style>
