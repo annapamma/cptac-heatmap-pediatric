@@ -6,9 +6,10 @@ import { utils, writeFile } from 'xlsx';
 
 import landingData from './landingData.js';
 import initialSortOrder from '@/initialSortOrder';
-import excelDataTest from '@/excelDataTest';
 
 Vue.use(Vuex);
+
+const apiRoot = 'http://127.0.0.1:5000';
 
 export default new Vuex.Store({
   state: {
@@ -69,11 +70,9 @@ export default new Vuex.Store({
   actions: {
     getExcelData(store, { genes }) {
       axios.get(
-        `http://127.0.0.1:5000/api/table/${genes}/`,
+        `${apiRoot}/api/table/${genes}/`,
       ).then(
         ( { data } ) => {
-          // store.commit('ASSIGN_EXCEL_DATA', data.excelData);
-          // console.log('in action: ', data.excelData);
           const ws = utils.json_to_sheet(
             data.excelData,
             {
@@ -99,7 +98,7 @@ export default new Vuex.Store({
     submitGenes(store, { genes} ) {
       store.commit('ASSIGN_GENE_LIST', genes.split('%20'));
       axios.get(
-        `http://127.0.0.1:5000/api/color/${genes}/`,
+        `${apiRoot}/api/color/${genes}/`,
       ).then(
         ( { data } ) => {
           store.commit('ASSIGN_SERIES', data.series)
