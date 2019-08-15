@@ -90,7 +90,14 @@ export default {
         alert('Please enter genes.');
         return;
       }
-      this.$store.dispatch('submitGenes', this.genes.join('%20'));
+      this.$store.dispatch(
+        'submitGenes',
+        {
+          genes: this.genes.join('%20'),
+          sort_category: 'default',
+          ascending: 0
+        }
+      );
     },
     downloadExcel() {
       const excelHeaders = ['Data type', 'Gene symbol', ...this.$store.state.sortOrder];

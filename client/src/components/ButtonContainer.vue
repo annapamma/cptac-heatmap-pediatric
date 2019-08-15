@@ -28,9 +28,6 @@ export default {
     sample() {
       return this.$store.state.selectedSample;
     },
-    // clinicalTrack() {
-    //   return this.$store.state.clinicalTracks.includes(this.series);
-    // },
     value() {
       return this.$store.state.selectedValue;
     },

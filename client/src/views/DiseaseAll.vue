@@ -42,7 +42,7 @@ export default {
         }, {});
     },
     clinicalSeries() {
-      return testDataColor.series;
+      return this.$store.state.series;
       // const series = name => (
       //   this.disease === 'all'
       //     ? {
