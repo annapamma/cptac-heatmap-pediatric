@@ -84,4 +84,10 @@ export default {
       cursor: pointer;
       z-index: 100;
   }
+
+  .apexcharts-yaxis {
+    /*background-color: pink !important;*/
+    border: solid 1px black;
+    /*border: pink !important;*/
+  }
 </style>

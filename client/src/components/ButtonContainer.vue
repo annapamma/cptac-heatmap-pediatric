@@ -4,12 +4,17 @@
       <div class="specific-data"><b>Series:</b> {{ this.series }}</div>
       <div class="specific-data"><b>Sample:</b> {{ this.sample }}</div>
       <div class="specific-data"><b>Value:</b> {{ this.value }}</div>
-      <button @click="sort(ascending=true)" style="background-color: lightgray;">
-        Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}
-      </button>
-      <button @click="sort(ascending=false)" style="background-color: lightgray;">
-        Sort {{ this.series.length ? `by ${this.series}: descending` : '' }}
-      </button>
+      <div class="sort-buttons" v-if="genes.length <= 30">
+        <button @click="sort(ascending=true)" style="background-color: lightgray;">
+          Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}
+        </button>
+        <button @click="sort(ascending=false)" style="background-color: lightgray;">
+          Sort {{ this.series.length ? `by ${this.series}: descending` : '' }}
+        </button>
+      </div>
+      <div class="sort-buttons-alert specific-data" v-if="!(genes.length <= 30)">
+        Shorten gene list to 30 genes or less to enable track sorting.
+      </div>
     </div>
   </div>
 </template>
@@ -21,7 +26,6 @@ export default {
   name: 'ButtonContainer',
   computed: {
     series() {
-      console.log('selected series: ', this.$store.state.selectedSeries);
       return this.$store.state.selectedSeries;
     },
     sample() {
@@ -36,7 +40,6 @@ export default {
   },
   methods: {
     sort(ascending) {
-      console.log('clicked button!')
       if (this.series.length || this.series === 'rna cl') {
         this.$store.dispatch(
           'sortSamples',
@@ -75,5 +78,9 @@ export default {
 
   .specific-data {
     font-size: small;
+  }
+
+  .sort-buttons-alert {
+    margin-top: 10px;
   }
 </style>

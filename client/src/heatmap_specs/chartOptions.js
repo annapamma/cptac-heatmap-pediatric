@@ -75,6 +75,8 @@ export default (colorScale, ctx) => ({
   yaxis: {
     labels: {
       minWidth: 190,
+      offsetY: 0,
+      // show: false,
     },
   },
   tooltip: {

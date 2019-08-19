@@ -42,7 +42,8 @@ export default {
     display: flex;
     flex-direction: column;
     width: 85%;
-    height: 95%;
+    /*height: 95%;*/
+    height: 100vh;
     margin: 10px auto;
     min-width: 800px;
   }
@@ -58,4 +59,5 @@ export default {
   .heatmap-container p {
     margin: 2px;
   }
+
 </style>

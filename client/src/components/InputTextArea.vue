@@ -1,86 +1,28 @@
 <template>
   <div class="input-text-area">
-      <textarea v-model="geneInput" :placeholder="'Paste gene list'"></textarea>
+      <textarea v-model="geneInput" :placeholder="'Paste gene list or select pathways'"></textarea>
+      <div class="specific-data">
+        <b>Length:</b> {{ genes.filter(function(el) { return el; }).length }}
+      </div>
       <button class="button-visualize" @click="submitGenes">Visualize</button>
       <button class="button-excel" @click="downloadExcel">Download Excel</button>
   </div>
 </template>
 
 <script>
-import { utils, writeFile } from 'xlsx';
-
 export default {
   name: 'InputTextArea',
-  data() {
-    return {
-      geneInput: 'CASP3,RRAS2,RASA1,RPS6KA2,NF1,BRAF',
-    };
-  },
   computed: {
-    excelData() {
-      return this.$store.state.excelData;
-      // const { proteo, clinicalTracks } = this.$store.state;
-      //
-      // const excelArr = clinicalTracks.map(track => clinicalExcelData[track]);
-      //
-      // for (const gene in proteo) {
-      //   if (proteo.hasOwnProperty(gene)) {
-      //     const geneObj = { 'Gene symbol': gene, 'Data type': 'proteo' };
-      //     for (const entry in proteo[gene]) {
-      //       if (proteo[gene].hasOwnProperty(entry)) {
-      //         geneObj[proteo[gene][entry].x] = proteo[gene][entry].y;
-      //       }
-      //     }
-      //     excelArr.push(geneObj);
-      //   }
-      // }
-      //
-      // return excelArr;
+    geneInput: {
+      set(txt) {
+        this.$store.dispatch('setGeneList', txt)
+      },
+      get() {
+        return this.$store.state.genes.join("\n")
+      }
     },
     genes() {
-      const trimmedGeneList = this.geneInput.trim().toUpperCase();
-      let geneListArr = [];
-
-      if (trimmedGeneList.length === 0) {
-        return [];
-      }
-
-      const combinations = [
-        ['\t', ' '],
-        ['\t', '\n'],
-        ['\t', ','],
-        ['\n', ' '],
-        ['\n', ','],
-        [' ', ','],
-        [';', ','],
-        [';', '\t'],
-        [';', '\n'],
-        [';', ' '],
-      ];
-
-      for (let i = 0; i < combinations.length; i++) {
-        const c = combinations[i];
-        if (trimmedGeneList.includes(c[0]) && trimmedGeneList.includes(c[1])) {
-          // TODO: change alert to line after visualize button
-          alert('Enter genes separated by a newline, tab, or space. '
-            + 'Your list seems to include multiple separators.');
-          return [];
-        }
-      }
-
-      if (trimmedGeneList.includes('\t')) {
-        geneListArr = trimmedGeneList.split('\t');
-      } else if (trimmedGeneList.includes(' ')) {
-        geneListArr = trimmedGeneList.split(' ');
-      } else if (trimmedGeneList.includes(';')) {
-        geneListArr = trimmedGeneList.split(';');
-      } else if (trimmedGeneList.includes(',')) {
-        geneListArr = trimmedGeneList.split(',');
-      } else {
-        geneListArr = trimmedGeneList.split('\n');
-      }
-
-      return [...new Set(geneListArr)];
+      return this.$store.state.genes;
     },
   },
   methods: {
@@ -103,12 +45,6 @@ export default {
           genes: this.genes.join('%20'),
         }
       );
-      // console.log('in dl button: ', this.$store.state.excelData);
-      // // const excelHeaders = ['Data type', 'Gene symbol', ...this.$store.state.sortOrder];
-      // const ws = utils.json_to_sheet(this.excelData, { header: excelHeaders });
-      // const wb = utils.book_new();
-      // utils.book_append_sheet(wb, ws);
-      // writeFile(wb, 'CPTAC3-pbt.xls');
     },
   },
 };
@@ -145,5 +81,9 @@ export default {
     font-weight: bold;
     color: white;
     border-radius: 4px;
+  }
+
+  .specific-data {
+    font-size: small;
   }
 </style>

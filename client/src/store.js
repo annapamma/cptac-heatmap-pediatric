@@ -14,7 +14,7 @@ const apiRoot = 'http://127.0.0.1:5000';
 export default new Vuex.Store({
   state: {
     excelData: {},
-    genes: [],
+    genes: ['CASP3', 'RRAS2', 'RASA1', 'RPS6KA2', 'NF1', 'BRAF'],
     series: landingData.series,
     selectedDisease: 'all',
     selectedSeries: '',
@@ -23,6 +23,9 @@ export default new Vuex.Store({
     sortOrder: initialSortOrder
   },
   mutations: {
+    ADD_PATHWAY_GENES(state, pwGenes) {
+      state.genes = [...new Set([...state.genes, ...pwGenes])];
+    },
     ASSIGN_EXCEL_DATA(state, excelData) {
       state.excelData = excelData;
     },
@@ -48,6 +51,9 @@ export default new Vuex.Store({
           data: el.data.sort(sortByIndex)
         }
       });
+    },
+    SET_GENE_LIST(state, geneListArr) {
+      state.genes = geneListArr;
     },
     SORT_SAMPLES(state, { ascending, series }) {
       const sortAscendingByY = (a, b) => {
@@ -105,5 +111,29 @@ export default new Vuex.Store({
         }
       );
     },
+    fetchPathwayGenes(store, { db, pw }) {
+      axios
+        .get(
+          `${apiRoot}/api/pathways/${db}/${pw}`,
+        )
+        .then(
+        ( { data } ) => {
+          store.commit('ADD_PATHWAY_GENES', data['pw_genes'])
+        }
+      )
+    },
+    setGeneList(store, geneTxt) {
+        // const geneListArr = geneTxt.trim().toUpperCase().split('\n';
+        let geneListArr = [];
+        if (geneTxt.length){
+           geneListArr = geneTxt
+             .toUpperCase()
+             .split('\n')
+             // .filter(function(el) { return el; });
+        }
+
+        store.commit('SET_GENE_LIST', [...new Set(geneListArr)]);
+    }
   },
+
 });
