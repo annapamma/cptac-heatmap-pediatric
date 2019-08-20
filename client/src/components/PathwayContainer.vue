@@ -46,7 +46,7 @@ export default {
       // shows pathway name
       this.$store.dispatch(
         'setPathwayIsSelected',
-        true
+        true,
       );
 
       // updates gene list to pathway genes

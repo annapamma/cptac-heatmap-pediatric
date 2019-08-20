@@ -21,7 +21,7 @@ import diagnosis from '@/diagnosis';
 export default {
   name: 'DiseaseAll',
   components: {
-    Loading
+    Loading,
   },
   data() {
     return {

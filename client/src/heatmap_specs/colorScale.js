@@ -175,10 +175,10 @@ const colorsRanges = {
   1073: '#FFFFFF', // Unavailable
   1074: '#0006a1', // Mutation
   1075: '#d6dfe6', // Wild Type
-  1076: '#a7a3c1', //ST
-  1077: '#434ed0', //PF>SPINE
-  1078: '#17758e', //PF
-  1079: '#8d7512', //SPINE
+  1076: '#a7a3c1', // ST
+  1077: '#434ed0', // PF>SPINE
+  1078: '#17758e', // PF
+  1079: '#8d7512', // SPINE
 };
 
 export default {

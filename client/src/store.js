@@ -130,13 +130,12 @@ export default new Vuex.Store({
       ).then(
         () => {
           store.commit('SET_LOADING', false);
-        }
+        },
       );
-
     },
     fetchPathwayGenes(store, { db, pw }) {
       store.commit('UPDATE_SELECTED_PATHWAY', pw);
-      let pw_clean = pw.split('/').join('%2F');
+      const pw_clean = pw.split('/').join('%2F');
       axios
         .get(
           `${apiRoot}/api/pathways/${db}/${pw_clean}`,

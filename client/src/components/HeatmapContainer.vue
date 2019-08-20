@@ -36,7 +36,7 @@ export default {
     return {
       isLoading: true,
       fullPage: false,
-    }
+    };
   },
   methods: {
     goToSingleDisease(disease) {

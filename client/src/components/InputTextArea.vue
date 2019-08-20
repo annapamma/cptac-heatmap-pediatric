@@ -30,7 +30,7 @@ export default {
     genes() {
       return this.$store.state.genes;
     },
-    pathwayIsSelected(){
+    pathwayIsSelected() {
       return this.$store.state.pathwayIsSelected;
     },
     selectedPathway() {

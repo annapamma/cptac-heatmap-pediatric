@@ -16,6 +16,7 @@
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.3.6",
     "vue-html-to-paper": "^1.1.0",
+    "vue-loading-overlay": "^3.2.0",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1",
     "xlsx": "^0.14.3"
