@@ -15,12 +15,14 @@ export default new Vuex.Store({
   state: {
     excelData: {},
     genes: ['CASP3', 'RRAS2', 'RASA1', 'RPS6KA2', 'NF1', 'BRAF'],
+    pathwayIsSelected: false,
     series: landingData.series,
     selectedDisease: 'all',
+    selectedPathway: '',
     selectedSeries: '',
     selectedSample: '',
     selectedValue: '',
-    sortOrder: initialSortOrder
+    sortOrder: initialSortOrder,
   },
   mutations: {
     ADD_PATHWAY_GENES(state, pwGenes) {
@@ -45,12 +47,10 @@ export default new Vuex.Store({
 
       const sortByIndex = (a, b) => (sortOrder.indexOf(a.x) > sortOrder.indexOf(b.x) ? 1 : -1);
 
-      state.series = state.series.map((el) => {
-        return {
-          name: el.name,
-          data: el.data.sort(sortByIndex)
-        }
-      });
+      state.series = state.series.map(el => ({
+        name: el.name,
+        data: el.data.sort(sortByIndex),
+      }));
     },
     SET_GENE_LIST(state, geneListArr) {
       state.genes = geneListArr;
@@ -62,33 +62,43 @@ export default new Vuex.Store({
         }
         return a.y > b.y ? -1 : 1;
       };
-      const seriesToSortBy = state.series.find(function(s) {
-        return s.name === series;
-      });
-      let sorted = seriesToSortBy.data.slice().sort(sortAscendingByY);
+      const seriesToSortBy = state.series.find(s => s.name === series);
+      const sorted = seriesToSortBy.data.slice().sort(sortAscendingByY);
 
       state.sortOrder = sorted.map(el => el.x);
     },
     UPDATE_SELECTED_DISEASE(state, disease) {
       state.selectedDisease = disease;
     },
+    UPDATE_PW_SELECTED(state, pathwayIsSelected) {
+      state.pathwayIsSelected = pathwayIsSelected;
+    },
+    UPDATE_SELECTED_PATHWAY(state, pw) {
+      state.selectedPathway = pw;
+    },
   },
   actions: {
+    setPathwayIsSelected(store, pathwayIsSelected) {
+      store.commit('UPDATE_PW_SELECTED', pathwayIsSelected);
+      if (!pathwayIsSelected) {
+        store.commit('UPDATE_SELECTED_PATHWAY', '');
+      }
+    },
     getExcelData(store, { genes }) {
       axios.get(
         `${apiRoot}/api/table/${genes}/`,
       ).then(
-        ( { data } ) => {
+        ({ data }) => {
           const ws = utils.json_to_sheet(
             data.excelData,
             {
-              header: ['idx', 'Data type', 'Gene symbol', ...store.state.sortOrder]
-            }
+              header: ['idx', 'Data type', 'Gene symbol', ...store.state.sortOrder],
+            },
           );
           const wb = utils.book_new();
           utils.book_append_sheet(wb, ws);
           writeFile(wb, 'CPTAC3-pbt.xls');
-        }
+        },
       );
     },
     sortSamples(store, { ascending, series }) {
@@ -101,39 +111,40 @@ export default new Vuex.Store({
     selectDisease(store, disease) {
       store.commit('UPDATE_SELECTED_DISEASE', disease);
     },
-    submitGenes(store, { genes} ) {
+    submitGenes(store, { genes }) {
       store.commit('ASSIGN_GENE_LIST', genes.split('%20'));
       axios.get(
         `${apiRoot}/api/color/${genes}/`,
       ).then(
-        ( { data } ) => {
-          store.commit('ASSIGN_SERIES', data.series)
-        }
+        ({ data }) => {
+          store.commit('ASSIGN_SERIES', data.series);
+        },
       );
     },
     fetchPathwayGenes(store, { db, pw }) {
+      store.commit('UPDATE_SELECTED_PATHWAY', pw);
       axios
         .get(
           `${apiRoot}/api/pathways/${db}/${pw}`,
         )
         .then(
-        ( { data } ) => {
-          store.commit('ADD_PATHWAY_GENES', data['pw_genes'])
-        }
-      )
+          ({ data }) => {
+            store.commit('ASSIGN_GENE_LIST', data.pw_genes);
+          },
+        );
     },
     setGeneList(store, geneTxt) {
-        // const geneListArr = geneTxt.trim().toUpperCase().split('\n';
-        let geneListArr = [];
-        if (geneTxt.length){
-           geneListArr = geneTxt
-             .toUpperCase()
-             .split('\n')
-             // .filter(function(el) { return el; });
-        }
+      // const geneListArr = geneTxt.trim().toUpperCase().split('\n';
+      let geneListArr = [];
+      if (geneTxt.length) {
+        geneListArr = geneTxt
+          .toUpperCase()
+          .split('\n');
+        // .filter(function(el) { return el; });
+      }
 
-        store.commit('SET_GENE_LIST', [...new Set(geneListArr)]);
-    }
+      store.commit('SET_GENE_LIST', [...new Set(geneListArr)]);
+    },
   },
 
 });

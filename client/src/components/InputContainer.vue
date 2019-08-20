@@ -9,7 +9,7 @@
 <script>
 import ButtonContainer from './ButtonContainer.vue';
 import InputTextArea from './InputTextArea.vue';
-import PathwayContainer from "./PathwayContainer";
+import PathwayContainer from './PathwayContainer';
 
 export default {
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="disease-all">
+  <div class="disease-all" id="heatmap-and-legend">
     <apexchart type=heatmap :height="height" :options="chartOptionsClinical" :series="clinicalSeries" />
   </div>
 </template>
@@ -8,7 +8,7 @@
 import chartOptions from '@/heatmap_specs/chartOptions';
 import colorScale from '@/heatmap_specs/colorScale';
 
-import diagnosis from '@/diagnosis'
+import diagnosis from '@/diagnosis';
 
 export default {
   name: 'DiseaseAll',
@@ -25,18 +25,15 @@ export default {
       return this.$store.state.selectedDisease;
     },
     clinicalSeries() {
-      const series = this.$store.state.series;
+      const { series } = this.$store.state;
 
       if (this.disease === 'all') {
         return series;
-      } else {
-         return series.map(el => {
-            return {
-              name: el.name,
-              data: el.data.filter(el => diagnosis[this.disease][el.x]),
-            }
-        });
       }
+      return series.map(el => ({
+        name: el.name,
+        data: el.data.filter(el => diagnosis[this.disease][el.x]),
+      }));
     },
   },
   // methods: {
@@ -52,7 +49,7 @@ export default {
       + 'min-width: 400px; '
       + 'text-align: center; '
       + 'display: block; '
-      + 'margin-left: auto; '
+      + 'margin-left: -30px; '
       + 'margin-right: auto;';
     const parentNode = document.querySelector('.disease-all');
     parentNode.append(legendImg);
@@ -61,6 +58,19 @@ export default {
 </script>
 
 <style lang="css">
+  .disease-all {
+    width: 800px;
+    max-width: 800px;
+    min-width: 800px;
+    margin: 10px auto;
+  }
+
+  /*#chart {*/
+    /*max-width: 600px;*/
+    /*min-width: 600px;*/
+    /*background-color: yellow;*/
+  /*}*/
+
   .apexcharts-canvas {
     height: 100%;
   }

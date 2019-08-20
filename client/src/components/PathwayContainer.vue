@@ -12,7 +12,7 @@
 
 
 <script>
-import pwNames from '@/pathwayNames'
+import pwNames from '@/pathwayNames';
 
 export default {
   name: 'PathwayContainer',
@@ -21,28 +21,38 @@ export default {
       searchTerm: '',
       // pathwayNames: pathwayNames,
       selectedPathwayDb: 'hallmark',
-    }
+    };
   },
   computed: {
     pathwayNames() {
       return pwNames[this.selectedPathwayDb]
         .filter((name) => {
           const searches = this.searchTerm.toLowerCase().split(' ');
-          return searches.every(search => name.toLowerCase().includes(search))
+          return searches.every(search => name.toLowerCase().includes(search));
         });
-    }
+    },
   },
   methods: {
     addPathwayGenes(pw) {
-      console.log('clicked: ', pw);
+      // clears pathway genes
+      this.$store.dispatch('setGeneList', '');
+
+      // shows pathway name
+      this.$store.dispatch(
+        'setPathwayIsSelected',
+        true
+      );
+
+      // updates gene list to pathway genes
       this.$store.dispatch(
         'fetchPathwayGenes',
-        { db: this.selectedPathwayDb,
-          pw
-        }
+        {
+          db: this.selectedPathwayDb,
+          pw,
+        },
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

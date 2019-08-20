@@ -36,7 +36,7 @@ export default {
     },
     genes() {
       return this.$store.state.genes;
-    }
+    },
   },
   methods: {
     sort(ascending) {
@@ -45,8 +45,8 @@ export default {
           'sortSamples',
           {
             series: this.series,
-            ascending
-          }
+            ascending,
+          },
         );
       }
     },
