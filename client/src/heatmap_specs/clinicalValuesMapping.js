@@ -75,4 +75,8 @@ export default {
   1073: 'Unavailable',
   1074: 'Mutant',
   1075: 'Wild Type',
+  1076: 'ST',
+  1077: 'PF>SPINE',
+  1078: 'PF',
+  1079: 'SPINE',
 };
