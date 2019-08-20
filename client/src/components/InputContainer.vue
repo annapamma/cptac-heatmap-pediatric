@@ -2,7 +2,7 @@
   <div class="input-container">
     <input-text-area />
     <button-container />
-    <pathway-container />
+    <pathway-container/>
   </div>
 </template>
 
@@ -18,8 +18,6 @@ export default {
     InputTextArea,
   },
   name: 'InputContainer',
-  methods: {
-  },
 };
 </script>
 

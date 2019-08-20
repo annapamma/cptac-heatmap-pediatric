@@ -15,6 +15,7 @@ export default new Vuex.Store({
   state: {
     excelData: {},
     genes: ['CASP3', 'RRAS2', 'RASA1', 'RPS6KA2', 'NF1', 'BRAF'],
+    isLoading: false,
     pathwayIsSelected: false,
     series: landingData.series,
     selectedDisease: 'all',
@@ -55,6 +56,9 @@ export default new Vuex.Store({
     SET_GENE_LIST(state, geneListArr) {
       state.genes = geneListArr;
     },
+    SET_LOADING(state, isLoading) {
+      state.isLoading = isLoading;
+    },
     SORT_SAMPLES(state, { ascending, series }) {
       const sortAscendingByY = (a, b) => {
         if (ascending) {
@@ -78,6 +82,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    loading(store, isLoading) {
+      store.commit('SET_LOADING', isLoading);
+    },
     setPathwayIsSelected(store, pathwayIsSelected) {
       store.commit('UPDATE_PW_SELECTED', pathwayIsSelected);
       if (!pathwayIsSelected) {
@@ -112,6 +119,7 @@ export default new Vuex.Store({
       store.commit('UPDATE_SELECTED_DISEASE', disease);
     },
     submitGenes(store, { genes }) {
+      store.commit('SET_LOADING', true);
       store.commit('ASSIGN_GENE_LIST', genes.split('%20'));
       axios.get(
         `${apiRoot}/api/color/${genes}/`,
@@ -119,13 +127,19 @@ export default new Vuex.Store({
         ({ data }) => {
           store.commit('ASSIGN_SERIES', data.series);
         },
+      ).then(
+        () => {
+          store.commit('SET_LOADING', false);
+        }
       );
+
     },
     fetchPathwayGenes(store, { db, pw }) {
       store.commit('UPDATE_SELECTED_PATHWAY', pw);
+      let pw_clean = pw.split('/').join('%2F');
       axios
         .get(
-          `${apiRoot}/api/pathways/${db}/${pw}`,
+          `${apiRoot}/api/pathways/${db}/${pw_clean}`,
         )
         .then(
           ({ data }) => {

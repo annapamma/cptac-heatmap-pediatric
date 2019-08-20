@@ -1,7 +1,14 @@
 <template>
   <div class="pathway-container">
-    <!--<p>{{pathwayNames}}</p>-->
-    <input v-model="searchTerm" placeholder="Search pathways"/>
+
+    <div class="pathway-db-selector">
+      <select v-model="selectedPathwayDb">
+        <option value="hallmark">Hallmark</option>
+        <option value="kegg">KEGG</option>
+        <option value="reactome">Reactome</option>
+      </select>
+    </div>
+    <input class="pathway-container-text-input" v-model="searchTerm" placeholder="Search pathways"/>
     <ul>
       <li v-for="pw in pathwayNames" v-on:click="addPathwayGenes(pw)">
         {{ pw }}
@@ -19,7 +26,6 @@ export default {
   data() {
     return {
       searchTerm: '',
-      // pathwayNames: pathwayNames,
       selectedPathwayDb: 'hallmark',
     };
   },
@@ -58,17 +64,31 @@ export default {
 
 <style scoped>
   .pathway-container {
-    width: 80%;
+    width: 90%;
+    min-width: 150px;
     height: 100%;
     margin: 10px auto;
-    background-color: pink;
+    /*background-color: pink;*/
     font-size: small;
     overflow-y: scroll;
+    border: solid 1px black;
+    padding: 5px;
   }
 
-  .pathway-container input {
-    width: 95%;
+  .pathway-db-selector {
+    /*background-color: gray;*/
+    display: inline;
     margin: 0 auto;
+  }
+
+  .pathway-db-selector label {
+    padding-left: 2px;
+    padding-right: 10px;
+  }
+
+  .pathway-container-text-input {
+    width: 95%;
+    margin: 4px auto;
     padding-left: 5px;
     border: solid 1px black;
   }
@@ -76,6 +96,7 @@ export default {
   .pathway-container ul {
     padding-left: 0;
     list-style-type: none;
+    margin: 0 auto;
   }
 
   .pathway-container li {

@@ -1,10 +1,18 @@
 <template>
   <div class="disease-all" id="heatmap-and-legend">
-    <apexchart type=heatmap :height="height" :options="chartOptionsClinical" :series="clinicalSeries" />
+    <loading :active.sync="isLoading"
+      :can-cancel="false"
+      :is-full-page="fullPage"
+       :opacity="0.7"
+    />
+    <apexchart v-if="!isLoading" type=heatmap :height="height" :options="chartOptionsClinical" :series="clinicalSeries" />
   </div>
 </template>
 
 <script>
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
 import chartOptions from '@/heatmap_specs/chartOptions';
 import colorScale from '@/heatmap_specs/colorScale';
 
@@ -12,12 +20,19 @@ import diagnosis from '@/diagnosis';
 
 export default {
   name: 'DiseaseAll',
+  components: {
+    Loading
+  },
   data() {
     return {
+      fullPage: false,
       chartOptionsClinical: chartOptions(colorScale, this),
     };
   },
   computed: {
+    isLoading() {
+      return this.$store.state.isLoading;
+    },
     height() {
       return this.clinicalSeries.length * 18;
     },

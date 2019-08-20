@@ -27,8 +27,17 @@
 </template>
 
 <script>
+
+
 export default {
   name: 'HeatmapContainer',
+  components: {},
+  data() {
+    return {
+      isLoading: true,
+      fullPage: false,
+    }
+  },
   methods: {
     goToSingleDisease(disease) {
       this.$store.dispatch('selectDisease', disease);

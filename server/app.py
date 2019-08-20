@@ -14,6 +14,10 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 color_scale = pickle.load(open('../data/color_scale.pkl', 'rb'))
 actual_vals = pickle.load(open('../data/actual.pkl', 'rb'))
+pathways = {
+    'hallmark': pickle.load(open('../data/pathways/hallmark.pkl', 'rb')),
+    'kegg': pickle.load(open('../data/pathways/kegg.pkl', 'rb'))
+}
 
 def df_to_apex_data(color_scale_df, actual_df):
     series = [
@@ -65,11 +69,15 @@ def table(genes_input):
         'excelData': df_list
     })
 
+@app.route("/api/pathways/<db>/<pw>")
+def pathway(db='', pw=''):
+    return jsonify({
+        'pw_genes': pathways[db][pw]
+    })
 
 @app.route('/')
 def catch_all():
     return app.send_static_file("index.html")
-
 
 @app.route('/assets/<path:path>')
 def send_assets(path):
