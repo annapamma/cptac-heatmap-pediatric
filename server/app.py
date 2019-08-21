@@ -16,7 +16,8 @@ color_scale = pickle.load(open('../data/color_scale.pkl', 'rb'))
 actual_vals = pickle.load(open('../data/actual.pkl', 'rb'))
 pathways = {
     'hallmark': pickle.load(open('../data/pathways/hallmark.pkl', 'rb')),
-    'kegg': pickle.load(open('../data/pathways/kegg.pkl', 'rb'))
+    'kegg': pickle.load(open('../data/pathways/kegg.pkl', 'rb')),
+    'reactome': pickle.load(open('../data/pathways/reactome.pkl', 'rb')),
 }
 
 def df_to_apex_data(color_scale_df, actual_df):
