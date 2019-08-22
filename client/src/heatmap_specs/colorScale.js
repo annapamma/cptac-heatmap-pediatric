@@ -144,14 +144,14 @@ const colorsRanges = {
   1042: '#CCBDE3', // phospho cl 6
   1043: '#DC7541', // phospho cl 7
   1044: '#828282', // phospho cl 8
-  1045: '#FFFF99', // cl cl 1
-  1046: '#BF5B17', // cl cl 2
-  1047: '#FDC086', // cl cl 3
-  1048: '#386CB0', // cl cl 4
-  1049: '#F0027F', // cl cl 5
-  1050: '#BEAED4', // cl cl 6
-  1051: '#7FC97F', // cl cl 7
-  1052: '#666666', // cl cl 8
+  1045: '#FDC086', // 'Severe'
+  1046: '#386CB0', // 'Cranio/LGG-BRAF-V600E'
+  1047: '#BEAED4', // 'Ganglio-rich'
+  1048: '#7FC97F', // 'LGG-BRAF-WT-rich'
+  1049: '#FFFF99', // 'Ependy'
+  1050: '#F0027F', // 'HGG-rich'
+  1051: '#666666', // 'LGG-BRAF-Fusion-rich'
+  1052: '#BF5B17', // 'Medullo'
   1053: '#ADF1D2', // 'Cerebellar',
   1054: '#755B69', // 'Optic Pathway',
   1055: '#97ABB1', // 'Thalamus',
