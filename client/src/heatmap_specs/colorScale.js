@@ -173,8 +173,8 @@ const colorsRanges = {
   1071: '#454E9E', // 'spinal/posterior fossa/supratentorial',
   1072: '#BF1A2F', // 'Thalamic/cortical',
   1073: '#FFFFFF', // Unavailable
-  1074: '#0006a1', // Mutation
-  1075: '#d6dfe6', // Wild Type
+  1074: '#d6dfe6', // Wild Type
+  1075: '#0006a1', // Mutation
   1076: '#a7a3c1', // ST
   1077: '#434ed0', // PF>SPINE
   1078: '#17758e', // PF

@@ -20,7 +20,7 @@ pathways = {
     'reactome': pickle.load(open('../data/pathways/reactome.pkl', 'rb')),
 }
 
-def df_to_apex_data(color_scale_df, actual_df):
+def df_to_apex_data(color_scale_df, actual_df, mutation_series_len):
     series = [
         {
             'name': data_type,
@@ -36,9 +36,12 @@ def df_to_apex_data(color_scale_df, actual_df):
         for data_type, vals in color_scale_df.iterrows()
     ]
     blank_row = { 'name': '', 'data': [] }
+    last_clinical_index = 13
+    proteo_separator = last_clinical_index + mutation_series_len + 1
     series.insert(7, blank_row)
     series.insert(11, blank_row)
     series.insert(13, blank_row)
+    series.insert(proteo_separator, blank_row)
     return series[::-1]
 
 def filtered_df(df, genes):
@@ -48,9 +51,15 @@ def filtered_df(df, genes):
 def color(genes_input):
     genes = genes_input.split(' ')
 
-    filtered_scale = filtered_df(color_scale, genes).drop(columns=['Data type', 'Gene symbol'])
+    filtered_scale = filtered_df(color_scale, genes)
 
-    series = df_to_apex_data(filtered_scale, actual_vals)
+    mutation_series = len(filtered_scale[filtered_scale['Data type'] == 'mutation'])
+
+    series = df_to_apex_data(
+        filtered_scale.drop(columns=['Data type', 'Gene symbol']),
+        actual_vals,
+        mutation_series
+    )
 
     return jsonify({
         'series': series
