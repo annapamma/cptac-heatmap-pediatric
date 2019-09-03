@@ -144,14 +144,14 @@ const colorsRanges = {
   1042: '#CCBDE3', // phospho cl 6
   1043: '#DC7541', // phospho cl 7
   1044: '#828282', // phospho cl 8
-  1045: '#FDC086', // 'Severe'
-  1046: '#386CB0', // 'Cranio/LGG-BRAF-V600E'
-  1047: '#BEAED4', // 'Ganglio-rich'
-  1048: '#7FC97F', // 'LGG-BRAF-WT-rich'
-  1049: '#FFFF99', // 'Ependy'
-  1050: '#F0027F', // 'HGG-rich'
-  1051: '#666666', // 'LGG-BRAF-Fusion-rich'
-  1052: '#BF5B17', // 'Medullo'
+  1045: '#75f961', // Ependy
+  1046: '#ef87cc', // Medullo
+  1047: '#732512', // Aggressive
+  1048: '#fffea6', // Cranio/LGG-BRAF-V600E
+  1049: '#304ed4', // HGG-rich
+  1050: '#74cfeb', // Ganglio-rich
+  1051: '#493d8c', // LGG-BRAF-WT-rich
+  1052: '#b3a3f3', // LGG-BRAF-Fusion-rich
   1053: '#ADF1D2', // 'Cerebellar',
   1054: '#755B69', // 'Optic Pathway',
   1055: '#97ABB1', // 'Thalamus',
