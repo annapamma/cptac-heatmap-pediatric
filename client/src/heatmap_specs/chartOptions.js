@@ -11,10 +11,10 @@ export default (colorScale, ctx) => ({
     },
     events: {
       updated() {
-        adjustYAxis();
+        // adjustYAxis();
       },
       mounted() {
-        adjustYAxis();
+        // adjustYAxis();
       },
       dataPointSelection(event, chartContext, config) {
         const { dataPointIndex } = config;

@@ -3,7 +3,7 @@
       <div class="pathway-header" v-if="pathwayIsSelected">
         {{ selectedPathway }}
       </div>
-      <textarea v-model="geneInput" :placeholder="'Paste gene list or select pathways'"></textarea>
+      <textarea v-model="geneInput" :placeholder="'Paste gene list or select pathway'"></textarea>
       <div class="text-length-and-clear-button">
         <div class="gene-length-data">
           <b>Length:</b> {{ genes.filter(function(el) { return el; }).length }}

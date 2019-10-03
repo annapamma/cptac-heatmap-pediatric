@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import DiseaseAll from './views/DiseaseAll.vue';
+import DiseasePhospho from './views/DiseasePhospho.vue';
 
 Vue.use(Router);
 
@@ -24,6 +25,10 @@ export default new Router({
       name: 'disease-all',
       component: DiseaseAll,
     },
-    // diseaseRoute('Ependymoma'),
+    {
+      path: '/phospho',
+      name: 'disease-phospho',
+      component: DiseasePhospho,
+    },
   ],
 });
