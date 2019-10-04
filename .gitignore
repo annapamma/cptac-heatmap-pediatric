@@ -5,3 +5,4 @@ data/*.pdf
 data/*.tsv
 
 .idea/
+.DS_Store
