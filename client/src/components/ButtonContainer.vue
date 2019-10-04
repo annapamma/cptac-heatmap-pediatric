@@ -4,6 +4,9 @@
       <div class="specific-data"><b>Series:</b> {{ this.series }}</div>
       <div class="specific-data"><b>Sample:</b> {{ this.sample }}</div>
       <div class="specific-data"><b>Value:</b> {{ this.value }}</div>
+      <div class="specific-data" v-if="selectedView === 'phospho'">
+        <b>phosphosite id:</b> {{ this.phosphoId }}
+      </div>
       <div class="sort-buttons" v-if="genes.length <= 30">
         <button @click="sort(ascending=true)" style="background-color: lightgray;">
           Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}
@@ -33,6 +36,12 @@ export default {
     },
     value() {
       return this.$store.state.selectedValue;
+    },
+    selectedView() {
+      return this.$store.state.selectedView;
+    },
+    phosphoId() {
+      return this.$store.state.selectedPhosphoId;
     },
     genes() {
       return this.$store.state.genes;

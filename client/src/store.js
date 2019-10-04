@@ -5,6 +5,7 @@ import axios from 'axios';
 import { utils, writeFile } from 'xlsx';
 
 import landingData from './landingData.js';
+import landingDataPhospho from './landingDataPhospho.js';
 import initialSortOrder from '@/initialSortOrder';
 
 Vue.use(Vuex);
@@ -18,8 +19,11 @@ export default new Vuex.Store({
     isLoading: false,
     pathwayIsSelected: false,
     series: landingData.series,
+    series_phospho: landingDataPhospho.series,
+    selectedView: 'phospho',
     selectedDisease: 'all',
     selectedPathway: '',
+    selectedPhosphoId: '',
     selectedSeries: '',
     selectedSample: '',
     selectedValue: '',
@@ -38,10 +42,14 @@ export default new Vuex.Store({
     ASSIGN_SERIES(state, series) {
       state.series = series;
     },
-    UPDATE_SELECTED_DATA_POINT(state, { selectedSeries, selectedSample, selectedValue }) {
+    ASSIGN_SERIES_PHOSPHO(state, series) {
+      state.series_phospho = series;
+    },
+    UPDATE_SELECTED_DATA_POINT(state, { selectedSeries, selectedSample, selectedValue, selectedPhosphoId }) {
       state.selectedSeries = selectedSeries;
       state.selectedSample = selectedSample;
       state.selectedValue = selectedValue;
+      state.selectedPhosphoId = selectedPhosphoId;
     },
     REORDER_SAMPLES(state) {
       const sortOrder = state.sortOrder.slice();
@@ -74,6 +82,9 @@ export default new Vuex.Store({
     UPDATE_SELECTED_DISEASE(state, disease) {
       state.selectedDisease = disease;
     },
+    UPDATE_SELECTED_VIEW (state, selectedView) {
+      state.selectedView = selectedView;
+    },
     UPDATE_PW_SELECTED(state, pathwayIsSelected) {
       state.pathwayIsSelected = pathwayIsSelected;
     },
@@ -82,14 +93,27 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    loading(store, isLoading) {
-      store.commit('SET_LOADING', isLoading);
-    },
-    setPathwayIsSelected(store, pathwayIsSelected) {
-      store.commit('UPDATE_PW_SELECTED', pathwayIsSelected);
-      if (!pathwayIsSelected) {
-        store.commit('UPDATE_SELECTED_PATHWAY', '');
-      }
+    fetchPhospho(store) {
+      const genes = store.state.genes.join('%20');
+      console.log('IN STORE!');
+      // store.commit('SET_LOADING', true);
+      axios.get(
+        `${apiRoot}/api/phospho/color/${genes}/`,
+      ).then(
+        ({ data }) => {
+          // console.log('AFTER API CALL: ', data)
+          store.commit('ASSIGN_SERIES_PHOSPHO', data.series);
+          console.log(data.series);
+        },
+      ).then(
+        () => {
+          store.commit('SET_LOADING', false);
+        },
+      ).catch(
+        () => {
+          console.log('oh no there was an error!');
+        },
+      );
     },
     getExcelData(store, { genes }) {
       axios.get(
@@ -108,12 +132,18 @@ export default new Vuex.Store({
         },
       );
     },
+    loading(store, isLoading) {
+      store.commit('SET_LOADING', isLoading);
+    },
+    setPathwayIsSelected(store, pathwayIsSelected) {
+      store.commit('UPDATE_PW_SELECTED', pathwayIsSelected);
+      if (!pathwayIsSelected) {
+        store.commit('UPDATE_SELECTED_PATHWAY', '');
+      }
+    },
     sortSamples(store, { ascending, series }) {
       store.commit('SORT_SAMPLES', { ascending, series });
       store.commit('REORDER_SAMPLES');
-    },
-    updateSelectedDataPoint(store, selectedDataPoint) {
-      store.commit('UPDATE_SELECTED_DATA_POINT', selectedDataPoint);
     },
     selectDisease(store, disease) {
       store.commit('UPDATE_SELECTED_DISEASE', disease);
@@ -132,6 +162,12 @@ export default new Vuex.Store({
           store.commit('SET_LOADING', false);
         },
       );
+    },
+    updateSelectedDataPoint(store, selectedDataPoint) {
+      store.commit('UPDATE_SELECTED_DATA_POINT', selectedDataPoint);
+    },
+    updateSelectedView(store, selectedView) {
+      store.commit('UPDATE_SELECTED_VIEW', selectedView)
     },
     fetchPathwayGenes(store, { db, pw }) {
       store.commit('UPDATE_SELECTED_PATHWAY', pw);

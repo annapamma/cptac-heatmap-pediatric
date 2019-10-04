@@ -41,11 +41,12 @@ export default {
       return this.$store.state.selectedDisease;
     },
     clinicalSeries() {
-      const { series } = this.$store.state;
+      const series = this.$store.state.series_phospho;
 
       if (this.disease === 'all') {
         return series;
       }
+
       return series.map(el => ({
         name: el.name,
         data: el.data.filter(el => diagnosis[this.disease][el.x]),
@@ -58,6 +59,7 @@ export default {
   //   },
   // },
   mounted() {
+    this.$store.dispatch('fetchPhospho');
     const legendImg = document.createElement('img');
     legendImg.src = require('@/assets/legend.jpg');
     legendImg.style = 'background-color: #00FFFF; '

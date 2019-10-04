@@ -1,7 +1,7 @@
 export default (colorScale, ctx) => ({
   chart: {
-    width: 600,
-    minWidth: 600,
+    width: 800,
+    minWidth: 800,
     type: 'heatmap',
     animations: {
       enabled: false,
@@ -22,12 +22,14 @@ export default (colorScale, ctx) => ({
         const selectedSeries = chartContext.series.w.config.series[seriesIndex].name;
         const selectedSample = chartContext.series.w.config.series[seriesIndex].data[dataPointIndex].x;
         const selectedValue = chartContext.series.w.config.series[seriesIndex].data[dataPointIndex].value;
+        const selectedPhosphoId = chartContext.series.w.config.series[seriesIndex].data[dataPointIndex].phospho_id;
         ctx.$store.dispatch(
           'updateSelectedDataPoint',
           {
             selectedSeries,
             selectedSample,
             selectedValue,
+            selectedPhosphoId,
           },
         );
       },

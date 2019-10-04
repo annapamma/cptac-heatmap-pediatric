@@ -14,6 +14,10 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 color_scale = pickle.load(open('../data/color_scale.pkl', 'rb'))
 actual_vals = pickle.load(open('../data/actual.pkl', 'rb'))
+
+color_scale_phospho = pickle.load(open('../data/color_scale_phospho.pkl', 'rb'))
+actual_vals_phospho = pickle.load(open('../data/actual_phospho.pkl', 'rb'))
+
 pathways = {
     'hallmark': pickle.load(open('../data/pathways/hallmark.pkl', 'rb')),
     'kegg': pickle.load(open('../data/pathways/kegg.pkl', 'rb')),
@@ -44,21 +48,67 @@ def df_to_apex_data(color_scale_df, actual_df, mutation_series_len):
     series.insert(proteo_separator, blank_row)
     return series[::-1]
 
+
+def df_to_apex_data_phospho(color_scale_df, actual_df):
+    series = []
+    for data_type, vals in color_scale_df.iterrows():
+        gene_symbol = actual_df['Gene symbol'][data_type]
+        if len(gene_symbol):
+            name = gene_symbol
+            phospho_id = data_type
+        else:
+            name = data_type
+            phospho_id = ''
+        series.extend([{
+            'name': name,
+            'data': [
+                    {
+                        'x': val[0],  # sample ID
+                        'y': val[1],  # color scale val
+                        'value': actual_df[val[0]][data_type],
+                        'phospho_id': phospho_id,
+                    }
+                    for val in vals.items()
+                ]
+        }])
+    blank_row = { 'name': '', 'data': [] }
+    last_clinical_index = 13
+    series.insert(7, blank_row)
+    series.insert(11, blank_row)
+    series.insert(last_clinical_index, blank_row)
+    return series[::-1]
+
+
 def filtered_df(df, genes):
     return df[(df['Gene symbol'].isin(genes)) | (df['Gene symbol'] == '')]
+
 
 @app.route("/api/color/<genes_input>/")
 def color(genes_input):
     genes = genes_input.split(' ')
 
     filtered_scale = filtered_df(color_scale, genes)
-
     mutation_series = len(filtered_scale[filtered_scale['Data type'] == 'mutation'])
 
     series = df_to_apex_data(
         filtered_scale.drop(columns=['Data type', 'Gene symbol']),
         actual_vals,
         mutation_series
+    )
+
+    return jsonify({
+        'series': series
+    })
+
+@app.route("/api/phospho/color/<genes_input>/")
+def phospho_color(genes_input):
+    genes = genes_input.split(' ')
+
+    filtered_scale = filtered_df(color_scale_phospho, genes)
+
+    series = df_to_apex_data_phospho(
+        filtered_scale.drop(columns=['Data type', 'Gene symbol']),
+        actual_vals_phospho
     )
 
     return jsonify({

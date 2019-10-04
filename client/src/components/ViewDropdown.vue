@@ -2,9 +2,8 @@
   <div class="view-dropdown">
     <label for="view-dropdown">View</label>
       <select v-model="selectedView" id="view-dropdown">
-        <option value="original">original</option>
+        <option value="all">original</option>
         <option value="phospho">phospho</option>
-        <!--<option value="reactome">Reactome</option>-->
       </select>
   </div>
 </template>
@@ -12,19 +11,19 @@
 
 <script>
 export default {
-  name: "view-dropdown",
+  name: 'view-dropdown',
   data() {
     return {
-      selectedView: 'original',
-    }
+      selectedView: 'phospho',
+    };
   },
   watch: {
     selectedView() {
-      console.log('BRRROOOP: ', this.selectedView)
-      this.$router.push({ name: 'disease-phospho' })
-    }
-  }
-}
+      this.$store.dispatch('updateSelectedView', this.selectedView);
+      this.$router.push({ name: `disease-${this.selectedView}` });
+    },
+  },
+};
 </script>
 
 
