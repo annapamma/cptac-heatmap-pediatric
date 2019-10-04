@@ -20,7 +20,7 @@ export default new Vuex.Store({
     pathwayIsSelected: false,
     series: landingData.series,
     series_phospho: landingDataPhospho.series,
-    selectedView: 'phospho',
+    selectedView: 'all',
     selectedDisease: 'all',
     selectedPathway: '',
     selectedPhosphoId: '',
@@ -128,15 +128,11 @@ export default new Vuex.Store({
   actions: {
     fetchPhospho(store) {
       const genes = store.state.genes.join('%20');
-      console.log('IN STORE!');
-      // store.commit('SET_LOADING', true);
       axios.get(
         `${apiRoot}/api/phospho/color/${genes}/`,
       ).then(
         ({ data }) => {
-          // console.log('AFTER API CALL: ', data)
           store.commit('ASSIGN_SERIES_PHOSPHO', data.series);
-          console.log(data.series);
         },
       ).then(
         () => {

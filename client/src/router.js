@@ -21,13 +21,13 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/phospho',
+      path: '/',
       name: 'disease-all',
       component: DiseaseAll,
     },
     {
-      // path: '/phospho',
-      path: '/',
+      path: '/phospho',
+      // path: '/',
       name: 'disease-phospho',
       component: DiseasePhospho,
     },

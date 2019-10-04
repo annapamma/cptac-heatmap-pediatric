@@ -12,16 +12,16 @@
 <script>
 export default {
   name: 'view-dropdown',
-  data() {
-    return {
-      selectedView: 'phospho',
-    };
-  },
-  watch: {
-    selectedView() {
-      this.$store.dispatch('updateSelectedView', this.selectedView);
-      this.$router.push({ name: `disease-${this.selectedView}` });
-    },
+  computed: {
+    selectedView: {
+      get() {
+        return this.$store.state.selectedView;
+      },
+      set(view) {
+        this.$store.dispatch('updateSelectedView', view);
+        this.$router.push({ name: `disease-${view}` });
+      }
+    }
   },
 };
 </script>
