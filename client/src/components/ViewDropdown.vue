@@ -19,10 +19,14 @@ export default {
       },
       set(view) {
         this.$store.dispatch('updateSelectedView', view);
-        this.$router.push({ name: `disease-${view}` });
       }
     }
   },
+  watch: {
+    selectedView() {
+      this.$router.push({ name: `disease-${this.selectedView}` });
+    }
+  }
 };
 </script>
 

@@ -131,6 +131,7 @@ export default new Vuex.Store({
   },
   actions: {
     fetchPhospho(store) {
+      store.commit('SET_LOADING', true);
       const genes = store.state.genes.join('%20');
       axios.get(
         `${apiRoot}/api/phospho/color/${genes}/`,
@@ -190,6 +191,8 @@ export default new Vuex.Store({
     submitGenes(store, { genes }) {
       store.commit('SET_LOADING', true);
       store.commit('ASSIGN_GENE_LIST', genes.split('%20'));
+      store.commit('UPDATE_FIRST_PHOSPHO_FETCHED', false);
+      store.commit('UPDATE_SELECTED_VIEW', 'all');
       axios.get(
         `${apiRoot}/api/color/${genes}/`,
       ).then(
