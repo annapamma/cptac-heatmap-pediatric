@@ -80,28 +80,6 @@ export default {
         }
       }
     },
-    sortPhospho(ascending) {
-      if (this.series.length) {
-        this.$store.dispatch(
-          'sortSamplesPhospho',
-          {
-            series: this.phosphoId.length ? this.phosphoId : this.series,
-            ascending,
-            phospho: this.phosphoId.length,
-          },
-        );
-      }
-
-    //   if (this.series.length && !this.phosphoId.length) {
-    //     this.$store.dispatch(
-    //       'sortSamplesPhospho',
-    //       {
-    //         series: this.series,
-    //         ascending,
-    //         phospho: false,
-    //       },
-    //     );
-    }
   },
 };
 </script>
