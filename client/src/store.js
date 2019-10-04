@@ -45,7 +45,9 @@ export default new Vuex.Store({
     ASSIGN_SERIES_PHOSPHO(state, series) {
       state.series_phospho = series;
     },
-    UPDATE_SELECTED_DATA_POINT(state, { selectedSeries, selectedSample, selectedValue, selectedPhosphoId }) {
+    UPDATE_SELECTED_DATA_POINT(state, {
+      selectedSeries, selectedSample, selectedValue, selectedPhosphoId,
+    }) {
       state.selectedSeries = selectedSeries;
       state.selectedSample = selectedSample;
       state.selectedValue = selectedValue;
@@ -82,7 +84,7 @@ export default new Vuex.Store({
     UPDATE_SELECTED_DISEASE(state, disease) {
       state.selectedDisease = disease;
     },
-    UPDATE_SELECTED_VIEW (state, selectedView) {
+    UPDATE_SELECTED_VIEW(state, selectedView) {
       state.selectedView = selectedView;
     },
     UPDATE_PW_SELECTED(state, pathwayIsSelected) {
@@ -167,7 +169,7 @@ export default new Vuex.Store({
       store.commit('UPDATE_SELECTED_DATA_POINT', selectedDataPoint);
     },
     updateSelectedView(store, selectedView) {
-      store.commit('UPDATE_SELECTED_VIEW', selectedView)
+      store.commit('UPDATE_SELECTED_VIEW', selectedView);
     },
     fetchPathwayGenes(store, { db, pw }) {
       store.commit('UPDATE_SELECTED_PATHWAY', pw);
