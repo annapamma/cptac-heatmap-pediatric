@@ -28,6 +28,7 @@ export default new Vuex.Store({
     selectedSample: '',
     selectedValue: '',
     sortOrder: initialSortOrder,
+    sortOrderPhospho: [],
   },
   mutations: {
     ADD_PATHWAY_GENES(state, pwGenes) {
@@ -63,6 +64,17 @@ export default new Vuex.Store({
         data: el.data.sort(sortByIndex),
       }));
     },
+    REORDER_SAMPLES_PHOSPHO(state) {
+      const sortOrder = state.sortOrderPhospho.slice();
+
+      const sortByIndex = (a, b) => (sortOrder.indexOf(a.x) > sortOrder.indexOf(b.x) ? 1 : -1);
+
+      state.series_phospho = state.series_phospho.map(el => ({
+        name: el.name,
+        phospho_id: el.phospho_id,
+        data: el.data.sort(sortByIndex),
+      }));
+    },
     SET_GENE_LIST(state, geneListArr) {
       state.genes = geneListArr;
     },
@@ -80,6 +92,18 @@ export default new Vuex.Store({
       const sorted = seriesToSortBy.data.slice().sort(sortAscendingByY);
 
       state.sortOrder = sorted.map(el => el.x);
+    },
+    SORT_SAMPLES_PHOSPHO(state, { ascending, series }) {
+      const sortAscendingByY = (a, b) => {
+        if (ascending) {
+          return a.y > b.y ? 1 : -1;
+        }
+        return a.y > b.y ? -1 : 1;
+      };
+
+      const seriesToSortBy = state.series_phospho.find(s => s.phospho_id === series);
+      const sorted = seriesToSortBy.data.slice().sort(sortAscendingByY);
+      state.sortOrderPhospho = sorted.map(el => el.x);
     },
     UPDATE_SELECTED_DISEASE(state, disease) {
       state.selectedDisease = disease;
@@ -147,6 +171,11 @@ export default new Vuex.Store({
       store.commit('SORT_SAMPLES', { ascending, series });
       store.commit('REORDER_SAMPLES');
     },
+    sortSamplesPhospho(store, { ascending, series, phospho }) {
+      store.commit('SORT_SAMPLES_PHOSPHO', { ascending, series, phospho });
+      store.commit('REORDER_SAMPLES_PHOSPHO');
+    },
+
     selectDisease(store, disease) {
       store.commit('UPDATE_SELECTED_DISEASE', disease);
     },

@@ -61,6 +61,7 @@ def df_to_apex_data_phospho(color_scale_df, actual_df):
             phospho_id = ''
         series.extend([{
             'name': name,
+            'phospho_id': phospho_id,
             'data': [
                     {
                         'x': val[0],  # sample ID

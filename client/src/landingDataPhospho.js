@@ -1308,7 +1308,7 @@ export default {
           phospho_id: 'NP_001096139.1_109_113_1_1_S109',
           value: '',
           x: 'X7316.957',
-          y: -1000,
+          y: 1000.0,
         },
         {
           phospho_id: 'NP_001096139.1_109_113_1_1_S109',
@@ -1318,6 +1318,7 @@ export default {
         },
       ],
       name: 'RRAS2',
+      phospho_id: 'NP_001096139.1_109_113_1_1_S109',
     },
     {
       data: [
@@ -2627,7 +2628,7 @@ export default {
           phospho_id: 'NP_000258.1_2781_2789_1_1_S2781',
           value: '',
           x: 'X7316.957',
-          y: -1000,
+          y: 1000.0,
         },
         {
           phospho_id: 'NP_000258.1_2781_2789_1_1_S2781',
@@ -2637,6 +2638,7 @@ export default {
         },
       ],
       name: 'NF1',
+      phospho_id: 'NP_000258.1_2781_2789_1_1_S2781',
     },
     {
       data: [
@@ -3946,7 +3948,7 @@ export default {
           phospho_id: 'NP_000258.1_2540_2544_1_1_T2544',
           value: '',
           x: 'X7316.957',
-          y: -1000,
+          y: 1000.0,
         },
         {
           phospho_id: 'NP_000258.1_2540_2544_1_1_T2544',
@@ -3956,6 +3958,7 @@ export default {
         },
       ],
       name: 'NF1',
+      phospho_id: 'NP_000258.1_2540_2544_1_1_T2544',
     },
     {
       data: [
@@ -5265,7 +5268,7 @@ export default {
           phospho_id: 'NP_000258.1_2479_2494_1_1_S2494',
           value: '',
           x: 'X7316.957',
-          y: -1000,
+          y: 1000.0,
         },
         {
           phospho_id: 'NP_000258.1_2479_2494_1_1_S2494',
@@ -5275,6 +5278,7 @@ export default {
         },
       ],
       name: 'NF1',
+      phospho_id: 'NP_000258.1_2479_2494_1_1_S2494',
     },
     {
       data: [
@@ -6584,7 +6588,7 @@ export default {
           phospho_id: 'NP_000258.1_856_871_1_1_S864',
           value: '',
           x: 'X7316.957',
-          y: -1000,
+          y: 1000.0,
         },
         {
           phospho_id: 'NP_000258.1_856_871_1_1_S864',
@@ -6594,6 +6598,7 @@ export default {
         },
       ],
       name: 'NF1',
+      phospho_id: 'NP_000258.1_856_871_1_1_S864',
     },
     {
       data: [
@@ -7903,7 +7908,7 @@ export default {
           phospho_id: 'NP_001341538.1_394_411_1_1_T401',
           value: '',
           x: 'X7316.957',
-          y: -1000,
+          y: 1000.0,
         },
         {
           phospho_id: 'NP_001341538.1_394_411_1_1_T401',
@@ -7913,6 +7918,7 @@ export default {
         },
       ],
       name: 'BRAF',
+      phospho_id: 'NP_001341538.1_394_411_1_1_T401',
     },
     {
       data: [
@@ -9222,7 +9228,7 @@ export default {
           phospho_id: 'NP_001341538.1_446_458_1_1_S447',
           value: '',
           x: 'X7316.957',
-          y: -1000,
+          y: 1000.0,
         },
         {
           phospho_id: 'NP_001341538.1_446_458_1_1_S447',
@@ -9232,6 +9238,7 @@ export default {
         },
       ],
       name: 'BRAF',
+      phospho_id: 'NP_001341538.1_446_458_1_1_S447',
     },
     {
       data: [],
@@ -10555,6 +10562,7 @@ export default {
         },
       ],
       name: 'Tumor location',
+      phospho_id: '',
     },
     {
       data: [],
@@ -11878,6 +11886,7 @@ export default {
         },
       ],
       name: 'proteo cl',
+      phospho_id: '',
     },
     {
       data: [
@@ -13197,6 +13206,7 @@ export default {
         },
       ],
       name: 'phospho cl',
+      phospho_id: '',
     },
     {
       data: [
@@ -14516,6 +14526,7 @@ export default {
         },
       ],
       name: 'rna cl',
+      phospho_id: '',
     },
     {
       data: [],
@@ -15839,6 +15850,7 @@ export default {
         },
       ],
       name: 'diagnosis',
+      phospho_id: '',
     },
     {
       data: [
@@ -17158,6 +17170,7 @@ export default {
         },
       ],
       name: 'grade',
+      phospho_id: '',
     },
     {
       data: [
@@ -18477,6 +18490,7 @@ export default {
         },
       ],
       name: 'Ependymoma_RELA status',
+      phospho_id: '',
     },
     {
       data: [
@@ -19796,6 +19810,7 @@ export default {
         },
       ],
       name: 'LGG_BRAF status',
+      phospho_id: '',
     },
     {
       data: [
@@ -21115,6 +21130,7 @@ export default {
         },
       ],
       name: 'CTNNB1 status',
+      phospho_id: '',
     },
     {
       data: [
@@ -22434,6 +22450,7 @@ export default {
         },
       ],
       name: 'HGG_H3F3A status',
+      phospho_id: '',
     },
     {
       data: [
@@ -23753,6 +23770,7 @@ export default {
         },
       ],
       name: 'Last Known Clinical Status',
+      phospho_id: '',
     },
   ],
 };

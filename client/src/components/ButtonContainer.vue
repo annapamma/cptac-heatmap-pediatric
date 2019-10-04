@@ -4,15 +4,23 @@
       <div class="specific-data"><b>Series:</b> {{ this.series }}</div>
       <div class="specific-data"><b>Sample:</b> {{ this.sample }}</div>
       <div class="specific-data"><b>Value:</b> {{ this.value }}</div>
-      <div class="specific-data" v-if="selectedView === 'phospho'">
+      <div class="specific-data" v-if="selectedView === 'phospho' && this.phosphoId.length">
         <b>phosphosite id:</b> {{ this.phosphoId }}
       </div>
-      <div class="sort-buttons" v-if="genes.length <= 30">
+      <div class="sort-buttons" v-if="genes.length <= 30 && !this.phosphoId.length">
         <button @click="sort(ascending=true)" style="background-color: lightgray;">
           Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}
         </button>
         <button @click="sort(ascending=false)" style="background-color: lightgray;">
           Sort {{ this.series.length ? `by ${this.series}: descending` : '' }}
+        </button>
+      </div>
+      <div class="sort-buttons" v-if="genes.length <= 30 && this.phosphoId.length">
+        <button @click="sortPhospho(ascending=true)" style="background-color: lightgray;">
+          Sort {{ this.series.length ? `by ${this.phosphoId} (${this.series}): ascending` : '' }}
+        </button>
+        <button @click="sortPhospho(ascending=false)" style="background-color: lightgray;">
+          Sort {{ this.series.length ? `by ${this.phosphoId} (${this.series}): descending` : '' }}
         </button>
       </div>
       <div class="sort-buttons-alert specific-data" v-if="!(genes.length <= 30)">
@@ -55,6 +63,18 @@ export default {
           {
             series: this.series,
             ascending,
+          },
+        );
+      }
+    },
+    sortPhospho(ascending) {
+      if (this.series.length && this.phosphoId.length) {
+        this.$store.dispatch(
+          'sortSamplesPhospho',
+          {
+            series: this.phosphoId,
+            ascending,
+            phospho: true,
           },
         );
       }
