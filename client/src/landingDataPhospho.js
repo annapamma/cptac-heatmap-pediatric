@@ -1306,7 +1306,7 @@ export default {
         },
         {
           phospho_id: 'NP_001096139.1_109_113_1_1_S109',
-          value: '',
+          value: 'NA',
           x: 'X7316.957',
           y: 1000.0,
         },
@@ -2626,7 +2626,7 @@ export default {
         },
         {
           phospho_id: 'NP_000258.1_2781_2789_1_1_S2781',
-          value: '',
+          value: 'NA',
           x: 'X7316.957',
           y: 1000.0,
         },
@@ -3946,7 +3946,7 @@ export default {
         },
         {
           phospho_id: 'NP_000258.1_2540_2544_1_1_T2544',
-          value: '',
+          value: 'NA',
           x: 'X7316.957',
           y: 1000.0,
         },
@@ -5266,7 +5266,7 @@ export default {
         },
         {
           phospho_id: 'NP_000258.1_2479_2494_1_1_S2494',
-          value: '',
+          value: 'NA',
           x: 'X7316.957',
           y: 1000.0,
         },
@@ -6586,7 +6586,7 @@ export default {
         },
         {
           phospho_id: 'NP_000258.1_856_871_1_1_S864',
-          value: '',
+          value: 'NA',
           x: 'X7316.957',
           y: 1000.0,
         },
@@ -7906,7 +7906,7 @@ export default {
         },
         {
           phospho_id: 'NP_001341538.1_394_411_1_1_T401',
-          value: '',
+          value: 'NA',
           x: 'X7316.957',
           y: 1000.0,
         },
@@ -9226,7 +9226,7 @@ export default {
         },
         {
           phospho_id: 'NP_001341538.1_446_458_1_1_S447',
-          value: '',
+          value: 'NA',
           x: 'X7316.957',
           y: 1000.0,
         },
