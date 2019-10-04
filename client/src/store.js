@@ -93,7 +93,7 @@ export default new Vuex.Store({
 
       state.sortOrder = sorted.map(el => el.x);
     },
-    SORT_SAMPLES_PHOSPHO(state, { ascending, series }) {
+    SORT_SAMPLES_PHOSPHO(state, { ascending, series, phospho }) {
       const sortAscendingByY = (a, b) => {
         if (ascending) {
           return a.y > b.y ? 1 : -1;
@@ -101,7 +101,14 @@ export default new Vuex.Store({
         return a.y > b.y ? -1 : 1;
       };
 
-      const seriesToSortBy = state.series_phospho.find(s => s.phospho_id === series);
+      let seriesToSortBy = [];
+
+      if (phospho) {
+        seriesToSortBy = state.series_phospho.find(s => s.phospho_id === series);
+      } else {
+        seriesToSortBy = state.series_phospho.find(s => s.name === series);
+      }
+
       const sorted = seriesToSortBy.data.slice().sort(sortAscendingByY);
       state.sortOrderPhospho = sorted.map(el => el.x);
     },

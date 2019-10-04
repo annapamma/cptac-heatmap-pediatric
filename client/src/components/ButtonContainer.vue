@@ -16,10 +16,10 @@
         </button>
       </div>
       <div class="sort-buttons" v-if="genes.length <= 30 && this.phosphoId.length">
-        <button @click="sortPhospho(ascending=true)" style="background-color: lightgray;">
+        <button @click="sort(ascending=true)" style="background-color: lightgray;">
           Sort {{ this.series.length ? `by ${this.phosphoId} (${this.series}): ascending` : '' }}
         </button>
-        <button @click="sortPhospho(ascending=false)" style="background-color: lightgray;">
+        <button @click="sort(ascending=false)" style="background-color: lightgray;">
           Sort {{ this.series.length ? `by ${this.phosphoId} (${this.series}): descending` : '' }}
         </button>
       </div>
@@ -57,28 +57,51 @@ export default {
   },
   methods: {
     sort(ascending) {
-      if (this.series.length || this.series === 'rna cl') {
-        this.$store.dispatch(
-          'sortSamples',
-          {
-            series: this.series,
-            ascending,
-          },
+      if (this.selectedView === 'phospho') {
+        if (this.series.length) {
+          this.$store.dispatch(
+            'sortSamplesPhospho',
+            {
+              series: this.phosphoId.length ? this.phosphoId : this.series,
+              ascending,
+              phospho: this.phosphoId.length,
+            },
         );
+      }
+      } else {
+        if (this.series.length || this.series === 'rna cl') {
+          this.$store.dispatch(
+            'sortSamples',
+            {
+              series: this.series,
+              ascending,
+            },
+          );
+        }
       }
     },
     sortPhospho(ascending) {
-      if (this.series.length && this.phosphoId.length) {
+      if (this.series.length) {
         this.$store.dispatch(
           'sortSamplesPhospho',
           {
-            series: this.phosphoId,
+            series: this.phosphoId.length ? this.phosphoId : this.series,
             ascending,
-            phospho: true,
+            phospho: this.phosphoId.length,
           },
         );
       }
-    },
+
+    //   if (this.series.length && !this.phosphoId.length) {
+    //     this.$store.dispatch(
+    //       'sortSamplesPhospho',
+    //       {
+    //         series: this.series,
+    //         ascending,
+    //         phospho: false,
+    //       },
+    //     );
+    }
   },
 };
 </script>
