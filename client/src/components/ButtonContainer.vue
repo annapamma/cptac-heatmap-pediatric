@@ -58,7 +58,7 @@ export default {
   methods: {
     sort(ascending) {
       if (this.selectedView === 'phospho') {
-        if (this.series.length) {
+        if (this.series) {
           this.$store.dispatch(
             'sortSamplesPhospho',
             {
@@ -69,7 +69,7 @@ export default {
         );
       }
       } else {
-        if (this.series.length || this.series === 'rna cl') {
+        if (this.series || this.series === 'rna cl') {
           this.$store.dispatch(
             'sortSamples',
             {

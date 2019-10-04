@@ -15,6 +15,7 @@ const apiRoot = 'http://127.0.0.1:5000';
 export default new Vuex.Store({
   state: {
     excelData: {},
+    firstPhosphoFetched: false,
     genes: ['CASP3', 'RRAS2', 'RASA1', 'RPS6KA2', 'NF1', 'BRAF'],
     isLoading: false,
     pathwayIsSelected: false,
@@ -112,6 +113,9 @@ export default new Vuex.Store({
       const sorted = seriesToSortBy.data.slice().sort(sortAscendingByY);
       state.sortOrderPhospho = sorted.map(el => el.x);
     },
+    UPDATE_FIRST_PHOSPHO_FETCHED(state, firstPhosphoFetched) {
+      state.firstPhosphoFetched = firstPhosphoFetched;
+    },
     UPDATE_SELECTED_DISEASE(state, disease) {
       state.selectedDisease = disease;
     },
@@ -133,6 +137,7 @@ export default new Vuex.Store({
       ).then(
         ({ data }) => {
           store.commit('ASSIGN_SERIES_PHOSPHO', data.series);
+          store.commit('UPDATE_FIRST_PHOSPHO_FETCHED', true);
         },
       ).then(
         () => {

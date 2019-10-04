@@ -59,7 +59,9 @@ export default {
   //   },
   // },
   mounted() {
-    this.$store.dispatch('fetchPhospho');
+    if (!this.$store.state.firstPhosphoFetched) {
+      this.$store.dispatch('fetchPhospho');
+    }
     const legendImg = document.createElement('img');
     legendImg.src = require('@/assets/legend.jpg');
     legendImg.style = 'background-color: #00FFFF; '
