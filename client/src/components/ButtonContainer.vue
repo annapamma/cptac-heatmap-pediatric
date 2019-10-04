@@ -7,7 +7,7 @@
       <div class="specific-data" v-if="selectedView === 'phospho' && this.phosphoId.length">
         <b>phosphosite id:</b> {{ this.phosphoId }}
       </div>
-      <div class="sort-buttons" v-if="genes.length <= 30 && !this.phosphoId.length">
+      <div class="sort-buttons" v-if="genes.length <= 30 && !this.phosphoId">
         <button @click="sort(ascending=true)" style="background-color: lightgray;">
           Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}
         </button>
@@ -15,7 +15,7 @@
           Sort {{ this.series.length ? `by ${this.series}: descending` : '' }}
         </button>
       </div>
-      <div class="sort-buttons" v-if="genes.length <= 30 && this.phosphoId.length">
+      <div class="sort-buttons" v-if="genes.length <= 30 && this.phosphoId">
         <button @click="sort(ascending=true)" style="background-color: lightgray;">
           Sort {{ this.series.length ? `by ${this.phosphoId} (${this.series}): ascending` : '' }}
         </button>
