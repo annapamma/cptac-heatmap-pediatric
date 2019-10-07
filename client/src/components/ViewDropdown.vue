@@ -2,7 +2,7 @@
   <div class="view-dropdown">
     <label for="view-dropdown">View</label>
       <select v-model="selectedView" id="view-dropdown">
-        <option value="all">original</option>
+        <option value="all">all</option>
         <option value="phospho">phospho</option>
       </select>
   </div>

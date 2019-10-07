@@ -1,5 +1,5 @@
 <template>
-  <div class="disease-all" id="heatmap-and-legend">
+  <div class="disease-phospho" id="heatmap-and-legend">
     <h3>PHOSPHO</h3>
     <loading :active.sync="isLoading"
       :can-cancel="false"
@@ -20,7 +20,7 @@ import colorScale from '@/heatmap_specs/colorScale';
 import diagnosis from '@/diagnosis';
 
 export default {
-  name: 'DiseaseAll',
+  name: 'DiseasePhospho',
   components: {
     Loading,
   },
@@ -59,26 +59,27 @@ export default {
   //   },
   // },
   mounted() {
+    this.$store.dispatch('updateSelectedView', 'phospho');
     if (!this.$store.state.firstPhosphoFetched) {
       this.$store.dispatch('fetchPhospho');
     }
     const legendImg = document.createElement('img');
     legendImg.src = require('@/assets/legend.jpg');
     legendImg.style = 'background-color: #00FFFF; '
-      + 'max-width: 1000px; '
-      + 'min-width: 400px; '
-      + 'text-align: center; '
-      + 'display: block; '
-      + 'margin-left: -30px; '
-      + 'margin-right: auto;';
-    const parentNode = document.querySelector('.disease-all');
+    + 'max-width: 1000px; '
+    + 'min-width: 400px; '
+    + 'text-align: center; '
+    + 'display: block; '
+    + 'margin-left: -30px; '
+    + 'margin-right: auto;';
+    const parentNode = document.querySelector('.disease-phospho');
     parentNode.append(legendImg);
   },
 };
 </script>
 
 <style lang="css">
-  .disease-all {
+  .disease-phospho {
     width: 800px;
     max-width: 800px;
     min-width: 800px;
@@ -99,7 +100,7 @@ export default {
     height: 100%;
   }
 
-  .disease-all {
+  .disease-phospho {
     background-color: white;
     width: 97%;
     height: 100vh;

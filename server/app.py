@@ -116,6 +116,20 @@ def phospho_color(genes_input):
         'series': series
     })
 
+@app.route("/api/phospho/table/<genes_input>/")
+def table_phospho(genes_input):
+    genes = genes_input.split(' ')
+
+    filtered_scale = filtered_df(actual_vals_phospho, genes)
+    df_list = filtered_scale.to_dict(orient='records')
+
+    for i, row in enumerate(df_list):
+        row['idx'] = filtered_scale.index[i]
+
+    return jsonify({
+        'excelData': df_list
+    })
+
 @app.route("/api/table/<genes_input>/")
 def table(genes_input):
     genes = genes_input.split(' ')

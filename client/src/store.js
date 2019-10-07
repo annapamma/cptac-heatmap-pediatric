@@ -151,8 +151,12 @@ export default new Vuex.Store({
       );
     },
     getExcelData(store, { genes }) {
+      const route =
+        store.state.selectedView === 'phospho' ?
+          `${apiRoot}/api/phospho/table/${genes}/` :
+          `${apiRoot}/api/table/${genes}/`;
       axios.get(
-        `${apiRoot}/api/table/${genes}/`,
+        route
       ).then(
         ({ data }) => {
           const ws = utils.json_to_sheet(
