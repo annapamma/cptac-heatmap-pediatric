@@ -9,7 +9,7 @@ Vue.use(Router);
 function singleTrackRoute(track) {
   return {
     path: `/${track}`,
-    name: 'disease-single-type',
+    name: `disease-${track}`,
     props: {
       track,
     },
@@ -27,14 +27,6 @@ export default new Router({
       component: DiseaseAll,
     },
     singleTrackRoute('mutation'),
-    // {
-    //   path: '/single',
-    //   name: 'disease-single-type',
-    //   props: {
-    //     track: 'mutation',
-    //   },
-    //   component: DiseaseSingleType,
-    // },
     {
       path: '/phospho',
       // path: '/',
