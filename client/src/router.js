@@ -6,16 +6,16 @@ import DiseasePhospho from './views/DiseasePhospho.vue';
 
 Vue.use(Router);
 
-// function diseaseRoute(disease) {
-//   return {
-//     path: `/${disease}`,
-//     name: `${disease}`,
-//     props: {
-//       disease,
-//     },
-//     component: () => import(/* webpackChunkName: "diseaseSingle" */ './views/DiseaseSingle.vue'),
-//   };
-// }
+function singleTrackRoute(track) {
+  return {
+    path: `/${track}`,
+    name: 'disease-single-type',
+    props: {
+      track,
+    },
+    component: () => import(/* webpackChunkName: "diseaseSingle" */ './views/DiseaseSingleType.vue'),
+  };
+}
 
 export default new Router({
   // mode: 'history',
@@ -23,9 +23,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'disease-single-type',
-      component: DiseaseSingleType,
+      name: 'disease-all',
+      component: DiseaseAll,
     },
+    singleTrackRoute('mutation'),
+    // {
+    //   path: '/single',
+    //   name: 'disease-single-type',
+    //   props: {
+    //     track: 'mutation',
+    //   },
+    //   component: DiseaseSingleType,
+    // },
     {
       path: '/phospho',
       // path: '/',

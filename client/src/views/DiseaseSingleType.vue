@@ -26,9 +26,10 @@ export default {
   components: {
     Loading,
   },
+  props: ['track'],
   data() {
     return {
-      track: 'mutation',
+      // track: 'mutation',
       fullPage: false,
       chartOptionsClinical: chartOptions(colorScale, this),
     };
@@ -63,11 +64,6 @@ export default {
       }));
     },
   },
-  // methods: {
-  //   goToSingleDisease(disease) {
-  //     this.$router.push(`/${disease}`);
-  //   },
-  // },
   mounted() {
     const legendImg = document.createElement('img');
     legendImg.src = require('@/assets/legend.jpg');
