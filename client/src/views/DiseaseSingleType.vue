@@ -5,7 +5,6 @@
       :is-full-page="fullPage"
        :opacity="0.7"
     />
-    <h3>{{ this.track }}</h3>
     <apexchart v-if="!isLoading" type=heatmap :height="height" :options="chartOptionsClinical" :series="clinicalSeries" />
   </div>
 </template>
