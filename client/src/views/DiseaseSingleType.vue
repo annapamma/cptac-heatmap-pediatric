@@ -19,7 +19,6 @@ import colorScale from '@/heatmap_specs/colorScale';
 
 import diagnosis from '@/diagnosis';
 import clinical from '@/clinical';
-import singleMapping from '@/singleMapping';
 
 export default {
   name: 'DiseaseSingleType',
@@ -31,6 +30,10 @@ export default {
     return {
       fullPage: false,
       chartOptionsClinical: chartOptions(colorScale, this),
+      singleMapping:{
+        'mutation': ' mut',
+        'proteo': ' Proteo',
+      },
     };
   },
   computed: {
@@ -38,7 +41,7 @@ export default {
       return this.$store.state.isLoading;
     },
     filter() {
-      return singleMapping[this.track];
+      return this.singleMapping[this.track];
     },
     height() {
       return this.clinicalSeries.length * 18;
