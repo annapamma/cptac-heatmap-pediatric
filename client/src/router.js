@@ -28,6 +28,7 @@ export default new Router({
     },
     singleTrackRoute('mutation'),
     singleTrackRoute('proteo'),
+    singleTrackRoute('rna'),
     {
       path: '/phospho',
       // path: '/',
