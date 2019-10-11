@@ -45,7 +45,7 @@ def df_to_apex_data(color_scale_df, actual_df, mutation_series_len):
     series.insert(7, blank_row)
     series.insert(11, blank_row)
     series.insert(13, blank_row)
-    series.insert(proteo_separator, blank_row)
+    # series.insert(proteo_separator, blank_row)
     return series[::-1]
 
 
