@@ -33,6 +33,7 @@ export default {
       singleMapping:{
         'mutation': ' mut',
         'proteo': ' Proteo',
+        'rna': ' rna',
       },
     };
   },
