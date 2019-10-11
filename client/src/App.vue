@@ -3,6 +3,9 @@
     <div class="logo-bar">
       <logo-container />
     </div>
+    <!--<div>-->
+      <cptac-description />
+    <!--</div>-->
     <div class="main">
       <input-container />
       <heatmap-container />
@@ -15,9 +18,11 @@
 import InputContainer from '@/components/InputContainer.vue';
 import HeatmapContainer from '@/components/HeatmapContainer.vue';
 import LogoContainer from '@/components/LogoContainer.vue';
+import CptacDescription from "./components/CptacDescription";
 
 export default {
   components: {
+    CptacDescription,
     HeatmapContainer,
     InputContainer,
     LogoContainer,
