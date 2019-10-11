@@ -5,7 +5,7 @@
       :is-full-page="fullPage"
        :opacity="0.7"
     />
-    <h3>single</h3>
+    <h3>{{ this.track }}</h3>
     <apexchart v-if="!isLoading" type=heatmap :height="height" :options="chartOptionsClinical" :series="clinicalSeries" />
   </div>
 </template>
@@ -29,7 +29,6 @@ export default {
   props: ['track'],
   data() {
     return {
-      // track: 'mutation',
       fullPage: false,
       chartOptionsClinical: chartOptions(colorScale, this),
     };
@@ -65,6 +64,7 @@ export default {
     },
   },
   mounted() {
+    this.$store.dispatch('updateSelectedView', this.track);
     const legendImg = document.createElement('img');
     legendImg.src = require('@/assets/legend.jpg');
     legendImg.style = 'background-color: #00FFFF; '

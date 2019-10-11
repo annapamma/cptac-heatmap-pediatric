@@ -1,6 +1,6 @@
 <template>
   <div class="disease-phospho" id="heatmap-and-legend">
-    <h3>PHOSPHO</h3>
+    <!--<h3>PHOSPHO</h3>-->
     <loading :active.sync="isLoading"
       :can-cancel="false"
       :is-full-page="fullPage"

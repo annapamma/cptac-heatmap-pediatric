@@ -1,3 +1,6 @@
+import rnaColorScale from './rnaColorScale.js'
+
+
 function colorRange([val, hex]) {
   return {
     from: val,
@@ -179,6 +182,7 @@ const colorsRanges = {
   1077: '#434ed0', // PF>SPINE
   1078: '#17758e', // PF
   1079: '#8d7512', // SPINE
+  ...rnaColorScale
 };
 
 export default {

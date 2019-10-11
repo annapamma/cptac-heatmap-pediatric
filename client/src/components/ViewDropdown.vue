@@ -4,6 +4,7 @@
       <select v-model="selectedView" id="view-dropdown">
         <option value="all">all</option>
         <option value="mutation">mutation</option>
+        <option value="proteo">proteo</option>
         <option value="phospho">phospho</option>
       </select>
   </div>

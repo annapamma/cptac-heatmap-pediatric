@@ -193,15 +193,19 @@ export default new Vuex.Store({
       store.commit('UPDATE_SELECTED_DISEASE', disease);
     },
     submitGenes(store, { genes }) {
+      console.log('in action: ', genes);
       store.commit('SET_LOADING', true);
       store.commit('ASSIGN_GENE_LIST', genes.split('%20'));
       store.commit('UPDATE_FIRST_PHOSPHO_FETCHED', false);
       store.commit('UPDATE_SELECTED_VIEW', 'all');
+      console.log('BACKEND HIT: ', `${apiRoot}/api/color/${genes}/`);
       axios.get(
         `${apiRoot}/api/color/${genes}/`,
       ).then(
         ({ data }) => {
+          console.log(typeof data);
           store.commit('ASSIGN_SERIES', data.series);
+          console.log('in axios req: ', data.series);
         },
       ).then(
         () => {

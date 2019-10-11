@@ -27,6 +27,7 @@ export default new Router({
       component: DiseaseAll,
     },
     singleTrackRoute('mutation'),
+    singleTrackRoute('proteo'),
     {
       path: '/phospho',
       // path: '/',
