@@ -29,10 +29,10 @@ export default {
     return {
       fullPage: false,
       chartOptionsClinical: chartOptions(colorScale, this),
-      singleMapping:{
-        'mutation': ' mut',
-        'proteo': ' Proteo',
-        'rna': ' rna',
+      singleMapping: {
+        mutation: ' mut',
+        proteo: ' Proteo',
+        rna: ' rna',
       },
     };
   },
@@ -51,10 +51,9 @@ export default {
     },
     clinicalSeries() {
       const series = this.$store.state.series
-        .filter(el =>
-          el.name === '' ||
-          clinical.includes(el.name) ||
-          el.name.includes(this.filter));
+        .filter(el => el.name === ''
+          || clinical.includes(el.name)
+          || el.name.includes(this.filter));
 
       if (this.disease === 'all') {
         return series;

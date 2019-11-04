@@ -22,16 +22,21 @@
         All Diagnoses
       </button>
     </div>
-    <router-view />
+    <div class="heatmap-and-legend">
+      <router-view />
+      <the-legend-container />
+    </div>
   </div>
 </template>
 
 <script>
-
+import TheLegendContainer from './TheLegendContainer.vue';
 
 export default {
   name: 'HeatmapContainer',
-  components: {},
+  components: {
+    TheLegendContainer,
+  },
   data() {
     return {
       isLoading: true,
@@ -67,6 +72,13 @@ export default {
 
   .heatmap-container p {
     margin: 2px;
+  }
+
+  .heatmap-and-legend {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /*background-color: yellow;*/
   }
 
 </style>

@@ -1,7 +1,6 @@
 <template>
     <div class="legend-category">
         <label for="v-for-object">{{ category }}
-            <p v-if="category === 'Z-Score'">Adjusted log ratio values</p>
         </label>
         <ul id="v-for-object" class="legend-elements">
           <li v-for="element in elements">
@@ -12,13 +11,15 @@
 </template>
 
 <script>
-    import LegendElementHorizontal from './LegendElementHorizontal.vue';
+import LegendElementHorizontal from './LegendElementHorizontal.vue';
 
-    export default {
-        name: 'legend-category-horizontal',
-        components: {LegendElementHorizontal},
-        props: ['category', 'elements'],
-    }
+export default {
+  name: 'legend-category-horizontal',
+  components: {
+    LegendElementHorizontal,
+  },
+  props: ['category', 'elements'],
+};
 </script>
 
 <style scoped>

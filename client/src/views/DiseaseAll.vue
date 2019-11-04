@@ -57,17 +57,17 @@ export default {
   //   },
   // },
   mounted() {
-    const legendImg = document.createElement('img');
-    legendImg.src = require('@/assets/legend.jpg');
-    legendImg.style = 'background-color: #00FFFF; '
-      + 'max-width: 1000px; '
-      + 'min-width: 400px; '
-      + 'text-align: center; '
-      + 'display: block; '
-      + 'margin-left: -30px; '
-      + 'margin-right: auto;';
-    const parentNode = document.querySelector('.disease-all');
-    parentNode.append(legendImg);
+    // const legendImg = document.createElement('img');
+    // legendImg.src = require('@/assets/legend.jpg');
+    // legendImg.style = 'background-color: #00FFFF; '
+    //   + 'max-width: 1000px; '
+    //   + 'min-width: 400px; '
+    //   + 'text-align: center; '
+    //   + 'display: block; '
+    //   + 'margin-left: -30px; '
+    //   + 'margin-right: auto;';
+    // const parentNode = document.querySelector('.disease-all');
+    // parentNode.append(legendImg);
   },
 };
 </script>
@@ -77,7 +77,7 @@ export default {
     width: 800px;
     max-width: 800px;
     min-width: 800px;
-    margin: 10px auto;
+    margin: 10px;
   }
 
   /*#chart {*/
@@ -96,7 +96,7 @@ export default {
 
   .disease-all {
     background-color: white;
-    width: 97%;
+    width: 85%;
     height: 100vh;
   }
 

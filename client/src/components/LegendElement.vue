@@ -6,10 +6,10 @@
 </template>
 
 <script>
-    export default {
-        name: 'legend-element',
-        props: ['value', 'color']
-    }
+export default {
+  name: 'legend-element',
+  props: ['value', 'color'],
+};
 </script>
 
 <style scoped>

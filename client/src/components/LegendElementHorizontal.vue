@@ -6,10 +6,10 @@
 </template>
 
 <script>
-    export default {
-        name: 'legend-element-horizontal',
-        props: ['value', 'color', 'missing']
-    }
+export default {
+  name: 'legend-element-horizontal',
+  props: ['value', 'color', 'missing'],
+};
 </script>
 
 <style scoped>

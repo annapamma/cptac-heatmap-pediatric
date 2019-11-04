@@ -66,18 +66,16 @@ export default {
               ascending,
               phospho: this.phosphoId.length,
             },
-        );
-      }
-      } else {
-        if (this.series || this.series === 'rna cl') {
-          this.$store.dispatch(
-            'sortSamples',
-            {
-              series: this.series,
-              ascending,
-            },
           );
         }
+      } else if (this.series || this.series === 'rna cl') {
+        this.$store.dispatch(
+          'sortSamples',
+          {
+            series: this.series,
+            ascending,
+          },
+        );
       }
     },
   },

@@ -18,7 +18,7 @@
 import InputContainer from '@/components/InputContainer.vue';
 import HeatmapContainer from '@/components/HeatmapContainer.vue';
 import LogoContainer from '@/components/LogoContainer.vue';
-import CptacDescription from "./components/CptacDescription";
+import CptacDescription from './components/CptacDescription';
 
 export default {
   components: {
@@ -30,7 +30,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -52,4 +52,15 @@ export default {
     flex-direction: row;
     height: 80px;
   }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
 </style>
