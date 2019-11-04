@@ -146,43 +146,30 @@ const colorsRanges = {
   1041: '#5C88CB', // phospho cl 5
   1042: '#CCBDE3', // phospho cl 6
   1043: '#DC7541', // phospho cl 7
-  1044: '#828282', // phospho cl 8
-  1045: '#75f961', // Ependy
-  1046: '#ef87cc', // Medullo
-  1047: '#732512', // Aggressive
-  1048: '#fffea6', // Cranio/LGG-BRAF-V600E
-  1049: '#304ed4', // HGG-rich
-  1050: '#74cfeb', // Ganglio-rich
-  1051: '#493d8c', // LGG-BRAF-WT-rich
-  1052: '#b3a3f3', // LGG-BRAF-Fusion-rich
-  1053: '#ADF1D2', // 'Cerebellar',
-  1054: '#755B69', // 'Optic Pathway',
-  1055: '#97ABB1', // 'Thalamus',
-  1056: '#594A26', // 'Temporal Lobe',
-  1057: '#CC7E85', // 'Infratentorial',
-  1058: '#6B0504', // 'Optic Pathway,Suprasellar/Hypothalamic/Pituitary',
-  1059: '#E6AF2E', // Suprasellar/Hypothalamic/Pituitary',
-  1060: '#A3320B', // 'Occipital Lobe,Temporal Lobe',
-  1061: '#77AF9C', // 'Spinal',
-  1062: '#457B9D', // 'Parietal Lobe,Temporal Lobe',
-  1063: '#E2B6CF', // 'Cerebellum/Posterior Fossa',
-  1064: '#CAFFB9', // 'Cortical',
-  1065: '#DF57BC', // 'Frontal Lobe',
-  1066: '#BBA0B2', // 'Frontal Lobe,Parietal Lobe',
-  1067: '#468189', // 'Brain Stem',
-  1068: '#379634', // 'Supratentorial',
-  1069: '#8EF9F3', // 'Ventricles',
-  1070: '#F7D002', // 'Midline',
-  1071: '#454E9E', // 'spinal/posterior fossa/supratentorial',
-  1072: '#BF1A2F', // 'Thalamic/cortical',
-  1073: '#FFFFFF', // Unavailable
+  1044: '#7cff7a', // phospho cl 8
+  1045: '#75f961', // proteo cl: Ependy
+  1046: '#ef87cc', // proteo cl:Medullo
+  1047: '#732512', // proteo cl:Aggressive
+  1048: '#fffea6', // proteo cl:Cranio/LGG-BRAF-V600E
+  1049: '#304ed4', // proteo cl:HGG-rich
+  1050: '#74cfeb', // proteo cl:Ganglio-rich
+  1051: '#493d8c', // proteo cl:LGG-BRAF-WT-rich
+  1052: '#b3a3f3', // proteo cl:LGG-BRAF-Fusion-rich
+  1053: '#379634', // 'Supratentorial',
+  1054: '#E2B6CF', // 'Cerebellar/Posterior fossa',
+  1055: '#E6AF2E', // 'Suprasellar',
+  1056: '#434ed0', // 'PF>SPINE',
+  1057: '#77AF9C', // 'Spine',
+  1058: '#CAFFB9', // 'Cortical',
+  1059: '#F7D002', // 'Midline',
+  1060: '#468189', // 'Brain stem',
+  1061: '#8EF9F3', // 'Ventricles',
+  1062: '#BF1A2F', // 'Thalamic/Cortical',
+  1063: '#755B69', // 'Optic pathway',
+  1064: '#FFFFFF', // 'Not available',
+  1073: '#FFFFFF', // 'Not available',
   1074: '#d6dfe6', // Wild Type
   1075: '#0006a1', // Mutation
-  1076: '#a7a3c1', // ST
-  1077: '#434ed0', // PF>SPINE
-  1078: '#17758e', // PF
-  1079: '#8d7512', // SPINE
-  // ...rnaColorScale,
 };
 
 export default {
