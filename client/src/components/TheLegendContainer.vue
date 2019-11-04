@@ -52,7 +52,6 @@ export default {
           ['Ventricles', '#8EF9F3'],
           ['Thalamic/Cortical', '#BF1A2F'],
           ['Optic pathway', '#755B69'],
-          ['Not Available', '#FFFFFF']
         ],
         'Last Known Clinical Status': [
           ['Alive', '#7FC97F'],
