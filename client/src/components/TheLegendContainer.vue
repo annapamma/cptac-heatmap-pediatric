@@ -53,9 +53,9 @@ export default {
           ['Thalamic/Cortical', '#BF1A2F'],
           ['Optic pathway', '#755B69'],
         ],
-        'Last Known Clinical Status': [
+        'Survival Status': [
           ['Alive', '#7FC97F'],
-          ['Deceased-causes unavailable', '#BEAED4'],
+          // ['Deceased-causes unavailable', '#BEAED4'],
           ['Deceased-due to disease', '#F0027F'],
           ['Deceased-due to other causes', '#386CB0'],
           ['Deceased-due to unknown causes', '#FFFF99'],
