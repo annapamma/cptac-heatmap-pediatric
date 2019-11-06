@@ -120,7 +120,7 @@ const colorsRanges = {
   1015: '#A6CEE3', // grade: WHO Grade I
   1016: '#1F78B4', // grade: WHO Grade I/II
   1017: '#B2DF8A', // grade: WHO Grade II
-  1018: '#33A02C', // grade: WHO Grade II/III
+  1018: '#33A02C', // grade: WHO Grade III
   1019: '#FB9A99', // grade: WHO Grade III/IV
   1020: '#E31A1C', // grade: WHO Grade IV
   1021: '#00FFFF', // diagnosis: Ganglioglioma

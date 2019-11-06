@@ -87,7 +87,7 @@ export default {
           ['WHO Grade I', '#A6CEE3'],
           ['WHO Grade I/II', '#1F78B4'],
           ['WHO Grade II', '#B2DF8A'],
-          ['WHO Grade II/III', '#33A02C'],
+          ['WHO Grade III', '#33A02C'],
           ['WHO Grade III/IV', '#FB9A99'],
           ['WHO Grade IV', '#E31A1C'],
         ],
