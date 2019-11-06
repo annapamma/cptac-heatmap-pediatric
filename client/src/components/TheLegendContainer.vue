@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       categoriesHorizontal: {
-        'Z-Score': [
+        'Proteo/Phospho/RNA Z-Score': [
           ['3', '#990000'],
           ['2', '#ff4d4d'],
           ['1', '#ff8080'],
