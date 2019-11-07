@@ -73,12 +73,6 @@ export default {
           ['BRAFp.V600E', '#800080'],
           ['BRAF Wild Type', '#00ff00 '],
         ],
-        'Immune Group': [
-          ['CD8- inflamed', '#9ecae3'],
-          ['CD8+ inflamed', '#cc0000'],
-          ['Metabolic immune-desert', '#98f367'],
-          ['VEGF immune-desert', '#fff871'],
-        ],
         'Ependymoma_RELA status': [
           ['RELA Fusion', '#003366'],
           ['RELA Wild Type', '#c71585'],
@@ -129,12 +123,6 @@ export default {
           ['Ganglio-rich', '#74cfeb'],
           ['LGG-BRAF-WT-rich', '#493d8c'],
           ['LGG-BRAF-Fusion-rich', '#b3a3f3'],
-        ],
-        '3p/5q/7p/9p/14q-CNV': [
-          ['Loss', '#003366'],
-          ['Neutral LOH', '#c2e2ec'],
-          ['Neutral', '#E8E8E8'],
-          ['Amplification', '#d94040'],
         ],
       },
     };
