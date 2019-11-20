@@ -24,6 +24,7 @@ pathways = {
     'reactome': pickle.load(open('../data/pathways/reactome.pkl', 'rb')),
 }
 
+
 def df_to_apex_data(color_scale_df, actual_df, mutation_series_len):
     series = [
         {
@@ -56,11 +57,14 @@ def df_to_apex_data_phospho(color_scale_df, actual_df):
         if len(gene_symbol):
             name = gene_symbol
             phospho_id = data_type
+            phospho_id_truncated = ' ' + phospho_id.split("_")[-1]
         else:
             name = data_type
             phospho_id = ''
+            phospho_id_truncated = ''
+
         series.extend([{
-            'name': name,
+            'name': '{}{}'.format(name, phospho_id_truncated),
             'phospho_id': phospho_id,
             'data': [
                     {
@@ -101,6 +105,7 @@ def color(genes_input):
         'series': series
     })
 
+
 @app.route("/api/phospho/color/<genes_input>/")
 def phospho_color(genes_input):
     genes = genes_input.split(' ')
@@ -116,6 +121,7 @@ def phospho_color(genes_input):
         'series': series
     })
 
+
 @app.route("/api/phospho/table/<genes_input>/")
 def table_phospho(genes_input):
     genes = genes_input.split(' ')
@@ -129,6 +135,7 @@ def table_phospho(genes_input):
     return jsonify({
         'excelData': df_list
     })
+
 
 @app.route("/api/table/<genes_input>/")
 def table(genes_input):
@@ -144,15 +151,18 @@ def table(genes_input):
         'excelData': df_list
     })
 
+
 @app.route("/api/pathways/<db>/<pw>")
 def pathway(db='', pw=''):
     return jsonify({
         'pw_genes': pathways[db][pw]
     })
 
+
 @app.route('/')
 def catch_all():
     return app.send_static_file("index.html")
+
 
 @app.route('/assets/<path:path>')
 def send_assets(path):
