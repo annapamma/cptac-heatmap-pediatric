@@ -63,17 +63,6 @@ export default {
     if (!this.$store.state.firstPhosphoFetched) {
       this.$store.dispatch('fetchPhospho');
     }
-    const legendImg = document.createElement('img');
-    legendImg.src = require('@/assets/legend.jpg');
-    legendImg.style = 'background-color: #00FFFF; '
-    + 'max-width: 1000px; '
-    + 'min-width: 400px; '
-    + 'text-align: center; '
-    + 'display: block; '
-    + 'margin-left: -30px; '
-    + 'margin-right: auto;';
-    const parentNode = document.querySelector('.disease-phospho');
-    parentNode.append(legendImg);
   },
 };
 </script>
