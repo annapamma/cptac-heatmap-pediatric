@@ -170,6 +170,13 @@ const colorsRanges = {
   1073: '#FFFFFF', // 'Not available',
   1074: '#d6dfe6', // Wild Type
   1075: '#0006a1', // Mutation
+  1080: '#42F4EE', // 'Cold - mixed',
+  1081: '#F45C42', // 'Hot Tumor',
+  1082: '#d4af37', // 'Epithelial',
+  1083: '#43cd80', // 'Neuronal',
+  1084: '#5042F4', // 'Cold - medullo',
+  1085: '#FFFFFF', // 'NaN'
+
 };
 
 export default {

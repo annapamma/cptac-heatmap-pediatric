@@ -79,4 +79,10 @@ export default {
   1077: 'PF>SPINE',
   1078: 'PF',
   1079: 'SPINE',
+  1080: 'Cold - mixed',
+  1081: 'Hot Tumor',
+  1082: 'Epithelial',
+  1083: 'Neuronal',
+  1084: 'Cold - medullo',
+  1085: 'NaN'
 };

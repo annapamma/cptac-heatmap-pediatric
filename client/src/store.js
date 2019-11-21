@@ -46,6 +46,7 @@ export default new Vuex.Store({
     },
     ASSIGN_SERIES_PHOSPHO(state, series) {
       state.series_phospho = series;
+      console.log('IN ASSIGN', state.series_phospho)
     },
     UPDATE_SELECTED_DATA_POINT(state, {
       selectedSeries, selectedSample, selectedValue, selectedPhosphoId,
@@ -133,6 +134,7 @@ export default new Vuex.Store({
     fetchPhospho(store) {
       store.commit('SET_LOADING', true);
       const genes = store.state.genes.join('%20');
+      console.log(`${apiRoot}/api/phospho/color/${genes}/`)
       axios.get(
         `${apiRoot}/api/phospho/color/${genes}/`,
       ).then(

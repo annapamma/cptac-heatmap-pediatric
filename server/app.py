@@ -46,6 +46,7 @@ def df_to_apex_data(color_scale_df, actual_df, mutation_series_len):
     series.insert(7, blank_row)
     series.insert(11, blank_row)
     series.insert(13, blank_row)
+    series.insert(15, blank_row)
     # series.insert(proteo_separator, blank_row)
     return series[::-1]
 
@@ -77,10 +78,10 @@ def df_to_apex_data_phospho(color_scale_df, actual_df):
                 ]
         }])
     blank_row = { 'name': '', 'data': [] }
-    last_clinical_index = 13
     series.insert(7, blank_row)
     series.insert(11, blank_row)
-    series.insert(last_clinical_index, blank_row)
+    series.insert(13, blank_row)
+    series.insert(15, blank_row)
     return series[::-1]
 
 

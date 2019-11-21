@@ -53,6 +53,13 @@ export default {
           ['Thalamic/Cortical', '#BF1A2F'],
           ['Optic pathway', '#755B69'],
         ],
+        'Immune cluster': [
+          ['Cold - mixed', '#42F4EE'],
+          ['Hot Tumor', '#F45C42'],
+          ['Epithelial', '#d4af37'],
+          ['Neuronal', '#43cd80'],
+          ['Cold - medullo', '#5042F4'],
+        ],
         'Survival Status': [
           ['Alive', '#7FC97F'],
           // ['Deceased-causes unavailable', '#BEAED4'],

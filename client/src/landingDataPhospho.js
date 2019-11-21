@@ -9248,6 +9248,1330 @@ export default {
       "data": [
         {
           "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.111",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.130",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.160",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.1784",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.1886",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.198",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2144",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2170",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2648",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2757",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2959",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.3",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.3069",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.3299",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.3319",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.384",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.394",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.443",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.872",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.873",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.889",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.892",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.176",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2146",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2151",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.109",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.1772",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.178",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.2155",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.278",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.2986",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.302",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.3023",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.3025",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.304",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.306",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.333",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.347",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.38",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.407",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.6",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.883",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.897",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.931",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.937",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.189",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2156",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.3300",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.451",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.47",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.490",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.1746",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.2140",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.913",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.1771",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.1781",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.1790",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2141",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2181",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2187",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2933",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.376",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.878",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.153",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - medullo",
+          "x": "X7316.99",
+          "y": 1084.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2901",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.124",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.1773",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Epithelial",
+          "x": "X7316.2671",
+          "y": 1082.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.3316",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Epithelial",
+          "x": "X7316.341",
+          "y": 1082.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Epithelial",
+          "x": "X7316.3571",
+          "y": 1082.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Epithelial",
+          "x": "X7316.3773",
+          "y": 1082.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.380",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Epithelial",
+          "x": "X7316.387",
+          "y": 1082.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Epithelial",
+          "x": "X7316.949",
+          "y": 1082.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.1760",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2154",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2581",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2664",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.2899",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.350",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.499",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.884",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.918",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.914",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.3292",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.454",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.496",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.487",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.114",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.1455",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.1763",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.1769",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.195",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2152",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.24",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2594",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2751",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.3022",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.3303",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.371",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.388",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Cold - mixed",
+          "x": "X7316.466",
+          "y": 1080.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.942",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.101",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.120",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.1793",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.1854",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.2760",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.319",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.321",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.3572",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.359",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.452",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.893",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.905",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.91",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.2758",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.167",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.183",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.193",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.196",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.217",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.2174",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.2195",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.3556",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.3570",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.370",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.875",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.1789",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.194",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.37",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.3765",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.3045",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.479",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.230",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.166",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.1751",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Epithelial",
+          "x": "X7316.1775",
+          "y": 1082.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Epithelial",
+          "x": "X7316.2157",
+          "y": 1082.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Epithelial",
+          "x": "X7316.2183",
+          "y": 1082.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.226",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.119",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.148",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.162",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.173",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.175",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.1851",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.186",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.2167",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.2723",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.2900",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.3068",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.32",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.3561",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.3575",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.362",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.397",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.442",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.449",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.459",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.470",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.84",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.880",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.882",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.925",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.936",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.944",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.946",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.445",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.156",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.324",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.117",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.121",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.127",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.134",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.146",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.154",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.168",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.1767",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.20",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.206",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.207",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2172",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2184",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2193",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.222",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.2663",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.2667",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2669",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.267",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.2729",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.2755",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.3055",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.3062",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.329",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.332",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.344",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.345",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.3555",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.368",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.391",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.393",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.400",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.472",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.475",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.485",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.488",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.495",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.77",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.869",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.891",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Neuronal",
+          "x": "X7316.932",
+          "y": 1083.0
+        },
+        {
+          "phospho_id": "",
+          "value": "NaN",
+          "x": "X7316.934",
+          "y": 1085
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.938",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.954",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.957",
+          "y": 1081.0
+        },
+        {
+          "phospho_id": "",
+          "value": "Hot Tumor",
+          "x": "X7316.89",
+          "y": 1081.0
+        }
+      ],
+      "name": "Immune cluster",
+      "phospho_id": ""
+    },
+    {
+      "data": [],
+      "name": ""
+    },
+    {
+      "data": [
+        {
+          "phospho_id": "",
           "value": "ST",
           "x": "X7316.111",
           "y": 1076.0
