@@ -31,7 +31,7 @@ export default {
       chartOptionsClinical: chartOptions(colorScale, this),
       singleMapping: {
         mutation: ' mut',
-        proteo: ' Proteo',
+        proteo: ' proteo',
         rna: ' rna',
       },
     };
@@ -67,17 +67,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch('updateSelectedView', this.track);
-    const legendImg = document.createElement('img');
-    legendImg.src = require('@/assets/legend.jpg');
-    legendImg.style = 'background-color: #00FFFF; '
-      + 'max-width: 1000px; '
-      + 'min-width: 400px; '
-      + 'text-align: center; '
-      + 'display: block; '
-      + 'margin-left: -30px; '
-      + 'margin-right: auto;';
-    const parentNode = document.querySelector('.disease-single-type');
-    parentNode.append(legendImg);
   },
 };
 </script>
