@@ -90,9 +90,14 @@ const zscoreRanges = [{
   color: '#ff0000',
 },
 {
+  from: 2.5,
+  to: 3,
+  color: '#ff0000',
+},
+{
   from: 3,
   to: 3.5,
-  color: '#cc0000',
+  color: '#E50000',
 },
 {
   from: 4,
