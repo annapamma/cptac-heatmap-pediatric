@@ -1,11 +1,7 @@
 <template>
   <div id="app">
-    <div class="logo-bar">
       <logo-container />
-    </div>
-    <!--<div>-->
       <cptac-description />
-    <!--</div>-->
     <div class="main">
       <input-container />
       <heatmap-container />

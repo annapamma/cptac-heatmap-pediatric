@@ -20,7 +20,6 @@ export default {
     .cptac-description {
         font-size: small;
         text-align: left;
-        font-family: "Times New Roman", Times, serif;
         font-weight: bold;
         margin: 0 15px;
     }
