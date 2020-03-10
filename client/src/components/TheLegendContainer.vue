@@ -147,9 +147,8 @@ export default {
 
 <style scoped>
 .the-legend-container {
-    width: 20%;
+    width: 25%;
     height: 100%;
-    /*background-color: pink;*/
     /*display: flex;*/
     /*flex-direction: column;*/
 }

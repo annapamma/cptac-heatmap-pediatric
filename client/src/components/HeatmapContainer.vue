@@ -55,8 +55,7 @@ export default {
   .heatmap-container {
     display: flex;
     flex-direction: column;
-    width: 85%;
-    /*height: 95%;*/
+    width: 100%;
     height: 100%;
     margin: 10px auto;
     min-width: 800px;

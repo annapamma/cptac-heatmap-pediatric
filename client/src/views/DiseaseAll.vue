@@ -74,8 +74,9 @@ export default {
 
 <style lang="css">
   .disease-all {
-    width: 800px;
-    max-width: 800px;
+    /*width: 900px;*/
+    /*max-width: 800px;*/
+    width: 100%;
     min-width: 800px;
     margin: 10px;
   }
@@ -95,8 +96,7 @@ export default {
   }
 
   .disease-all {
-    background-color: white;
-    width: 85%;
+    /*width: 85%;*/
     height: 100vh;
   }
 
