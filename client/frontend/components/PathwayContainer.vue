@@ -19,7 +19,7 @@
 
 
 <script>
-import pwNames from '../src/pathwayNames.js';
+import pwNames from '../landingData/pathwayNames.js';
 
 export default {
   name: 'PathwayContainer',

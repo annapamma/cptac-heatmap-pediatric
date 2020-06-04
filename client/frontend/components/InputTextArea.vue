@@ -12,7 +12,7 @@
       </div>
       <button class="button-visualize" @click="submitGenes">Visualize</button>
       <button class="button-excel" @click="downloadExcel">Download Excel</button>
-        <view-dropdown />
+      <view-dropdown />
   </div>
 </template>
 

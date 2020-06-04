@@ -12,9 +12,6 @@ app = Flask(__name__,
 
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-color_scale_phospho = pickle.load(open('../data/color_scale_phospho.pkl', 'rb'))
-actual_vals_phospho = pickle.load(open('../data/actual_phospho.pkl', 'rb'))
-
 color_df = pickle.load(open('../data/color.pkl', 'rb'))
 actual_df = pickle.load(open('../data/actual.pkl', 'rb'))
 phospho_df = pickle.load(open('../data/phospho.pkl', 'rb'))

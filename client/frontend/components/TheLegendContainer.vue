@@ -17,7 +17,7 @@
 import LegendCategory from './LegendCategory.vue';
 import LegendCategoryHorizontal from './LegendCategoryHorizontal.vue';
 
-import legend from '../src/legendOptions.js'
+import legend from '../landingData/legendOptions.js'
 
 export default {
   name: 'the-legend-container',

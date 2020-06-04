@@ -6,7 +6,7 @@ import { TileSpinner } from 'vue-spinners'
 import VModal from 'vue-js-modal'
 import JsonExcel from 'vue-json-to-excel';
 
-import store from '././src/store.js';
+import store from './src/store.js';
 
 Vue.use(VueApexCharts);
 Vue.use(VModal);

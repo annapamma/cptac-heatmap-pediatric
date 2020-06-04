@@ -7,14 +7,14 @@ import { utils, writeFile } from 'xlsx';
 import landingData from './landingData.js';
 import landingDataPhospho from './landingDataPhospho.js';
 import initialSortOrder from './initialSortOrder.js';
-import topSeries from '../src/topSeries.js';
-import chromosomeSeries from '../src/chromosomeSeries.js';
-import bottomSeries from '../src/bottomSeries.js';
+import topSeries from './/topSeries.js';
+import chromosomeSeries from './/chromosomeSeries.js';
+import bottomSeries from './/bottomSeries.js';
 import landingDataMutation from "./landingDataMutation.js";
 
 Vue.use(Vuex);
 
-const apiRoot = '';
+const apiRoot = 'http://127.0.0.1:5000/';
 
 export default new Vuex.Store({
   state: {
@@ -319,17 +319,17 @@ export default new Vuex.Store({
         },
       );
     },
-      loadFirstData (store) {
-            axios.get('load_first_data/')
-                .then(response => {
-                    store.commit('ADD_HISTOLOGY_DATA', response.data.histology)
-                })
-                .catch(
-                    error => {
-                        store.commit('API_FAIL', error);
-                    }
-                )
-        },
+    loadFirstData (store) {
+          axios.get('load_first_data/')
+              .then(response => {
+                  store.commit('ADD_HISTOLOGY_DATA', response.data.histology)
+              })
+              .catch(
+                  error => {
+                      store.commit('API_FAIL', error);
+                  }
+              )
+      },
     loading(store, isLoading) {
       store.commit('SET_LOADING', isLoading);
     },
@@ -347,6 +347,7 @@ export default new Vuex.Store({
       store.commit('UPDATE_SELECTED_DISEASE', disease);
     },
     submitGenes(store, genes) {
+      console.log('in submit genes')
       store.commit('SET_LOADING', true);
       store.commit('ASSIGN_GENE_LIST', genes['genes']);
       axios.post(
@@ -354,6 +355,7 @@ export default new Vuex.Store({
             genes
       ).then(
         ({ data }) => {
+            console.log(data)
             store.commit('UPDATE_SERIES', data.series);
         },
       ).catch(
