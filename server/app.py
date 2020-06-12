@@ -18,6 +18,7 @@ app = Flask(__name__,
 actual_df = pickle.load(open('../data/pickle/actual.pkl', 'rb'))
 color_df = pickle.load(open('../data/pickle/color.pkl', 'rb'))
 top_series = pickle.load(open('../data/pickle/top_series.pkl', 'rb'))
+landing_data_series = pickle.load(open('../data/pickle/landing_data.pkl', 'rb'))
 
 
 def filtered_df_single_gene(df, gene):
@@ -68,6 +69,14 @@ def submit_genes():
 def clinical_data():
     return jsonify({
         'series': top_series,
+    })
+
+
+@app.route('/api/landing_data/', methods=['GET'])
+@cross_origin()
+def landing_data():
+    return jsonify({
+        'series': landing_data_series,
     })
 # phospho_df = pickle.load(open('../data/phospho.pkl', 'rb'))
 # mutation_df = pickle.load(open('../data/mutation.pkl', 'rb'))

@@ -13,7 +13,7 @@ import landingDataMutation from "./landingDataMutation.js";
 
 Vue.use(Vuex);
 
-//TODO (6/13): show clinical
+//TODO (6/12): landing genes & display single data point
 const apiRoot = 'http://127.0.0.1:5000/';
 
 export default new Vuex.Store({
@@ -334,6 +334,18 @@ export default new Vuex.Store({
       .then(
         ({ data }) => {
           store.commit('UPDATE_TOP_SERIES', data.series)
+        },
+      ).catch(
+        (e) => {
+          console.error('FetchError: ', e.message);
+        },
+      );
+      axios.get(
+        `${apiRoot}api/landing_data/`)
+      .then(
+        ({ data }) => {
+          console.log('data ', data)
+          store.commit('UPDATE_SERIES', data.series)
         },
       ).catch(
         (e) => {
