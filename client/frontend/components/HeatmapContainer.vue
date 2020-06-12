@@ -4,13 +4,13 @@
         :series="topSeries"
         :options="options"
     />
-<!--    <heatmap v-if="selectedView === 'all'"-->
-<!--        v-for="(val, gene) in series"-->
-<!--        :options="options"-->
-<!--        :series="val"-->
-<!--        :gene="gene"-->
-<!--        :key="gene"-->
-<!--    />-->
+    <heatmap v-if="selectedView === 'all'"
+        v-for="(val, gene) in series"
+        :options="options"
+        :series="val"
+        :gene="gene"
+        :key="gene"
+    />
 <!--    <heatmap v-if="selectedView === 'phospho'"-->
 <!--        v-for="(val, gene) in phosphoSeries"-->
 <!--        :options="options"-->
@@ -24,14 +24,6 @@
 <!--        :series="val"-->
 <!--        :gene="gene"-->
 <!--        :key="gene.toString()"-->
-<!--    />-->
-<!--    <heatmap-clinical-->
-<!--        :series="chromosomeSeries"-->
-<!--        :options="options"-->
-<!--    />-->
-<!--    <heatmap-clinical-->
-<!--        :series="bottomSeries"-->
-<!--        :options="options"-->
 <!--    />-->
   </div>
 </template>
