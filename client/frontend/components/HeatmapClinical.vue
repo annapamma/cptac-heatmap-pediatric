@@ -21,7 +21,7 @@
     }
 </script>
 
-<style scoped>
+<style>
   .apexcharts-canvas {
     height: 100%;
   }
@@ -31,7 +31,8 @@
   }
 
   .apex-container {
-    width: calc(100vw - 500px);
+    width: calc(100vw - 350px);
+    min-width: 800px;
   }
 
   .apexcharts-canvas {

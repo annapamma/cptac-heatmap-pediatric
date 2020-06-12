@@ -17,6 +17,7 @@ app = Flask(__name__,
 # )
 actual_df = pickle.load(open('../data/pickle/actual.pkl', 'rb'))
 color_df = pickle.load(open('../data/pickle/color.pkl', 'rb'))
+top_series = pickle.load(open('../data/pickle/top_series.pkl', 'rb'))
 
 
 def filtered_df_single_gene(df, gene):
@@ -24,7 +25,6 @@ def filtered_df_single_gene(df, gene):
 
 
 def df_to_apex_data_single_gene(filtered_gene_df, actual):
-    print(filtered_gene_df.isna().any().any())
     series = [
         {
             'name': data_type,
@@ -62,6 +62,13 @@ def submit_genes():
         'series': gene_dfs,
     })
 
+
+@app.route('/api/clinical_data/', methods=['GET'])
+@cross_origin()
+def clinical_data():
+    return jsonify({
+        'series': top_series,
+    })
 # phospho_df = pickle.load(open('../data/phospho.pkl', 'rb'))
 # mutation_df = pickle.load(open('../data/mutation.pkl', 'rb'))
 # mutation_color_df = pickle.load(open('../data/mutation_color.pkl', 'rb'))

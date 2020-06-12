@@ -7,13 +7,13 @@ import { utils, writeFile } from 'xlsx';
 import landingData from './landingData.js';
 import landingDataPhospho from './landingDataPhospho.js';
 import initialSortOrder from './initialSortOrder.js';
-import topSeries from './/topSeries.js';
-import chromosomeSeries from './/chromosomeSeries.js';
-import bottomSeries from './/bottomSeries.js';
+import chromosomeSeries from './chromosomeSeries.js';
+import bottomSeries from './bottomSeries.js';
 import landingDataMutation from "./landingDataMutation.js";
 
 Vue.use(Vuex);
 
+//TODO (6/13): show clinical
 const apiRoot = 'http://127.0.0.1:5000/';
 
 export default new Vuex.Store({
@@ -25,6 +25,10 @@ export default new Vuex.Store({
     genes: ['BRAF'],
     geneDetails: {},
     heights: {
+        16: 300,
+        15: 300,
+        14: 300,
+        13: 280,
         8: 168,
         7: 153,
         6: 138,
@@ -57,7 +61,7 @@ export default new Vuex.Store({
     selectedValue: '',
     sortOrder: initialSortOrder,
     sortOrderPhospho: [],
-    topSeries,
+    topSeries: [],
   },
   mutations: {
     ADD_GENE_DETAILS(state, geneDetails) {
@@ -323,6 +327,19 @@ export default new Vuex.Store({
     },
     loading(store, isLoading) {
       store.commit('SET_LOADING', isLoading);
+    },
+    loadFirstData(store) {
+      axios.get(
+        `${apiRoot}api/clinical_data/`)
+      .then(
+        ({ data }) => {
+          store.commit('UPDATE_TOP_SERIES', data.series)
+        },
+      ).catch(
+        (e) => {
+          console.error('FetchError: ', e.message);
+        },
+      );
     },
     setPathwayIsSelected(store, pathwayIsSelected) {
       store.commit('UPDATE_PW_SELECTED', pathwayIsSelected);

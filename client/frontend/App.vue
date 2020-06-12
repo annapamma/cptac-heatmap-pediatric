@@ -26,6 +26,7 @@ export default {
     LogoContainer,
   },
     mounted() {
+      this.$store.dispatch('loadFirstData')
     }
 };
 </script>

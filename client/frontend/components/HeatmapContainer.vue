@@ -1,16 +1,16 @@
 <template>
   <div class="heatmap-container">
-<!--    <heatmap-clinical-->
-<!--        :series="topSeries"-->
-<!--        :options="options"-->
-<!--    />-->
-    <heatmap v-if="selectedView === 'all'"
-        v-for="(val, gene) in series"
+    <heatmap-clinical
+        :series="topSeries"
         :options="options"
-        :series="val"
-        :gene="gene"
-        :key="gene"
     />
+<!--    <heatmap v-if="selectedView === 'all'"-->
+<!--        v-for="(val, gene) in series"-->
+<!--        :options="options"-->
+<!--        :series="val"-->
+<!--        :gene="gene"-->
+<!--        :key="gene"-->
+<!--    />-->
 <!--    <heatmap v-if="selectedView === 'phospho'"-->
 <!--        v-for="(val, gene) in phosphoSeries"-->
 <!--        :options="options"-->
@@ -39,7 +39,7 @@
 <script>
 // import TheLegendContainer from './TheLegendContainer.vue';
 import Heatmap from './Heatmap.vue';
-// import HeatmapClinical from "./HeatmapClinical.vue";
+import HeatmapClinical from "./HeatmapClinical.vue";
 
 import chartOptions from '../heatmap_specs/chartOptions.js';
 import colorScale from '../heatmap_specs/colorScale.js';
@@ -47,7 +47,7 @@ import colorScale from '../heatmap_specs/colorScale.js';
 export default {
     name: 'HeatmapContainer',
     components: {
-        // HeatmapClinical,
+        HeatmapClinical,
         Heatmap,
         // TheLegendContainer,
     },
