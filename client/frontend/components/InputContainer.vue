@@ -1,14 +1,14 @@
 <template>
   <div class="input-container">
     <input-text-area />
-<!--    <button-container />-->
+    <button-container />
 <!--    <track-selector v-if="selectedView === 'all'"/>-->
 <!--    <pathway-container />-->
   </div>
 </template>
 
 <script>
-// import ButtonContainer from './ButtonContainer.vue';
+import ButtonContainer from './ButtonContainer.vue';
 import InputTextArea from './InputTextArea.vue';
 // import PathwayContainer from './PathwayContainer.vue';
 // import ViewDropdown from './ViewDropdown.vue';
@@ -19,7 +19,7 @@ export default {
     // TrackSelector,
     // ViewDropdown,
     // PathwayContainer,
-    // ButtonContainer,
+    ButtonContainer,
     InputTextArea,
   },
   name: 'InputContainer',

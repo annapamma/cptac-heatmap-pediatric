@@ -13,7 +13,7 @@ import landingDataMutation from "./landingDataMutation.js";
 
 Vue.use(Vuex);
 
-//TODO (6/12): landing genes & display single data point
+//TODO (6/12): show phospho series with gene
 const apiRoot = 'http://127.0.0.1:5000/';
 
 export default new Vuex.Store({
