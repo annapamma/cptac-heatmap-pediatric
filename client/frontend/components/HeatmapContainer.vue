@@ -1,9 +1,9 @@
 <template>
   <div class="heatmap-container">
-    <heatmap-clinical
-        :series="topSeries"
-        :options="options"
-    />
+<!--    <heatmap-clinical-->
+<!--        :series="topSeries"-->
+<!--        :options="options"-->
+<!--    />-->
     <heatmap v-if="selectedView === 'all'"
         v-for="(val, gene) in series"
         :options="options"
@@ -11,35 +11,35 @@
         :gene="gene"
         :key="gene"
     />
-    <heatmap v-if="selectedView === 'phospho'"
-        v-for="(val, gene) in phosphoSeries"
-        :options="options"
-        :series="val"
-        :gene="gene"
-        :key="gene.toString()"
-    />
-      <heatmap v-if="selectedView === 'mutation'"
-        v-for="(val, gene) in mutationSeries"
-        :options="options"
-        :series="val"
-        :gene="gene"
-        :key="gene.toString()"
-    />
-    <heatmap-clinical
-        :series="chromosomeSeries"
-        :options="options"
-    />
-    <heatmap-clinical
-        :series="bottomSeries"
-        :options="options"
-    />
+<!--    <heatmap v-if="selectedView === 'phospho'"-->
+<!--        v-for="(val, gene) in phosphoSeries"-->
+<!--        :options="options"-->
+<!--        :series="val"-->
+<!--        :gene="gene"-->
+<!--        :key="gene.toString()"-->
+<!--    />-->
+<!--      <heatmap v-if="selectedView === 'mutation'"-->
+<!--        v-for="(val, gene) in mutationSeries"-->
+<!--        :options="options"-->
+<!--        :series="val"-->
+<!--        :gene="gene"-->
+<!--        :key="gene.toString()"-->
+<!--    />-->
+<!--    <heatmap-clinical-->
+<!--        :series="chromosomeSeries"-->
+<!--        :options="options"-->
+<!--    />-->
+<!--    <heatmap-clinical-->
+<!--        :series="bottomSeries"-->
+<!--        :options="options"-->
+<!--    />-->
   </div>
 </template>
 
 <script>
-import TheLegendContainer from './TheLegendContainer.vue';
+// import TheLegendContainer from './TheLegendContainer.vue';
 import Heatmap from './Heatmap.vue';
-import HeatmapClinical from "./HeatmapClinical.vue";
+// import HeatmapClinical from "./HeatmapClinical.vue";
 
 import chartOptions from '../heatmap_specs/chartOptions.js';
 import colorScale from '../heatmap_specs/colorScale.js';
@@ -47,9 +47,9 @@ import colorScale from '../heatmap_specs/colorScale.js';
 export default {
     name: 'HeatmapContainer',
     components: {
-        HeatmapClinical,
+        // HeatmapClinical,
         Heatmap,
-        TheLegendContainer,
+        // TheLegendContainer,
     },
     data() {
         return {

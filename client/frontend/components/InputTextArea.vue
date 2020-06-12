@@ -57,24 +57,24 @@ export default {
           genes: this.genes,
         },
       );
-      this.$store.dispatch(
-        'submitGenesPhospho',
-        {
-          genes: this.genes,
-        },
-      );
-      this.$store.dispatch(
-        'submitGenesMutation',
-        {
-          genes: this.genes,
-        },
-      );
-      this.$store.dispatch(
-        'fetchGeneDetails',
-        {
-          genes: this.genes,
-        },
-      );
+      // this.$store.dispatch(
+      //   'submitGenesPhospho',
+      //   {
+      //     genes: this.genes,
+      //   },
+      // );
+      // this.$store.dispatch(
+      //   'submitGenesMutation',
+      //   {
+      //     genes: this.genes,
+      //   },
+      // );
+      // this.$store.dispatch(
+      //   'fetchGeneDetails',
+      //   {
+      //     genes: this.genes,
+      //   },
+      // );
     },
     downloadExcel() {
         if (this.$store.state.selectedView === 'phospho') {

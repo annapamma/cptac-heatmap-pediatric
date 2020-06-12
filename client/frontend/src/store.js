@@ -22,7 +22,7 @@ export default new Vuex.Store({
     chromosomeSeries,
     excelData: {},
     firstPhosphoFetched: false,
-    genes: ['CD8A', 'PDCD1', 'CD274', 'VEGFA', 'BAP1'],
+    genes: ['BRAF'],
     geneDetails: {},
     heights: {
         8: 168,
@@ -30,12 +30,11 @@ export default new Vuex.Store({
         6: 138,
         5: 123,
         4: 108,
-        3: 93,
+        3: 110,
         2: 78,
         1: 68
     },
     HGVSp_Short: '',
-    histology: {},
     isLoading: false,
     mutationSeries: landingDataMutation.series,
     pathwayIsSelected: false,
@@ -63,9 +62,6 @@ export default new Vuex.Store({
   mutations: {
     ADD_GENE_DETAILS(state, geneDetails) {
         state.geneDetails = geneDetails;
-    },
-    ADD_HISTOLOGY_DATA(state, histology) {
-        state.histology = histology;
     },
     ADD_PATHWAY_GENES(state, pwGenes) {
       state.genes = [...new Set([...state.genes, ...pwGenes])];
@@ -236,7 +232,13 @@ export default new Vuex.Store({
     },
     UPDATE_SELECTED_VIEW(state, selectedView) {
         state.selectedView = selectedView
-    }
+    },
+    UPDATE_PW_SELECTED(state, pathwayIsSelected) {
+      state.pathwayIsSelected = pathwayIsSelected;
+    },
+    UPDATE_SELECTED_PATHWAY(state, pw) {
+      state.selectedPathway = pw;
+    },
   },
   actions: {
     fetchGeneDetails(store, genes) {
@@ -319,17 +321,6 @@ export default new Vuex.Store({
         },
       );
     },
-    loadFirstData (store) {
-          axios.get('load_first_data/')
-              .then(response => {
-                  store.commit('ADD_HISTOLOGY_DATA', response.data.histology)
-              })
-              .catch(
-                  error => {
-                      store.commit('API_FAIL', error);
-                  }
-              )
-      },
     loading(store, isLoading) {
       store.commit('SET_LOADING', isLoading);
     },
@@ -347,15 +338,14 @@ export default new Vuex.Store({
       store.commit('UPDATE_SELECTED_DISEASE', disease);
     },
     submitGenes(store, genes) {
-      console.log('in submit genes')
       store.commit('SET_LOADING', true);
       store.commit('ASSIGN_GENE_LIST', genes['genes']);
       axios.post(
-        `/api/series/`,
+        `${apiRoot}api/series/`,
             genes
       ).then(
         ({ data }) => {
-            console.log(data)
+            console.log('payload ', data)
             store.commit('UPDATE_SERIES', data.series);
         },
       ).catch(
@@ -366,7 +356,7 @@ export default new Vuex.Store({
     },
     submitGenesPhospho(store, genes) {
       axios.post(
-        `/api/phospho_series/`,
+        `${apiRoot}api/phospho_series/`,
             genes
       ).then(
         ({ data }) => {
@@ -395,9 +385,9 @@ export default new Vuex.Store({
     updateSelectedDataPoint(store, selectedDataPoint) {
       store.commit('UPDATE_SELECTED_DATA_POINT', selectedDataPoint);
     },
-      updateSelectedTracks(store, selectedTracks) {
-        store.commit('UPDATE_SELECTED_TRACKS', selectedTracks)
-      },
+    updateSelectedTracks(store, selectedTracks) {
+      store.commit('UPDATE_SELECTED_TRACKS', selectedTracks)
+    },
     updateSelectedView(store, selectedView) {
       store.commit('UPDATE_SELECTED_VIEW', selectedView);
     },

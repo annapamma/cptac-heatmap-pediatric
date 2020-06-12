@@ -1,7 +1,8 @@
+import json
 import pickle
 
-from flask import Flask, jsonify, safe_join, send_from_directory
-from flask_cors import CORS
+from flask import Flask, jsonify, safe_join, send_from_directory, request
+from flask_cors import CORS, cross_origin
 
 STATIC_DIR = '../client/dist/'
 ASSETS_DIR = './assets'
@@ -10,21 +11,66 @@ app = Flask(__name__,
             static_folder=STATIC_DIR,
             )
 
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-
-color_df = pickle.load(open('../data/color.pkl', 'rb'))
-actual_df = pickle.load(open('../data/actual.pkl', 'rb'))
-phospho_df = pickle.load(open('../data/phospho.pkl', 'rb'))
-mutation_df = pickle.load(open('../data/mutation.pkl', 'rb'))
-mutation_color_df = pickle.load(open('../data/mutation_color.pkl', 'rb'))
-
-pathways = {
-    'hallmark': pickle.load(open('../data/pathways/hallmark.pkl', 'rb')),
-    'kegg': pickle.load(open('../data/pathways/kegg.pkl', 'rb')),
-    'reactome': pickle.load(open('../data/pathways/reactome.pkl', 'rb')),
-}
+# cors = CORS(app, resources={
+#         r"/api/*": {"origins": "*"},
+#     }
+# )
+actual_df = pickle.load(open('../data/pickle/actual.pkl', 'rb'))
+color_df = pickle.load(open('../data/pickle/color.pkl', 'rb'))
 
 
+def filtered_df_single_gene(df, gene):
+    return df[df['Gene symbol'] == gene]
+
+
+def df_to_apex_data_single_gene(filtered_gene_df, actual):
+    print(filtered_gene_df.isna().any().any())
+    series = [
+        {
+            'name': data_type,
+            'dataType': actual.loc[data_type]['Data type'],
+            'data': [
+                {
+                    'x': val[0],  # sample ID
+                    'y': val[1],  # color scale val
+                    'value': actual[val[0]][data_type],
+                    'gene': actual.loc[data_type]['Gene symbol'],
+                }
+                for val in vals.items()
+            ]
+        }
+        for data_type, vals in filtered_gene_df.iterrows()
+    ]
+    for s in series:
+        s['data'].insert(-7, {'x': 'separator', 'y': 1000, 'value': 'separator', 'gene': 'separator'})
+    return series[::-1]
+
+
+@app.route('/api/series/', methods=['POST'])
+@cross_origin()
+def submit_genes():
+    genes = [g for g in json.loads(request.data)['genes'] if g in actual_df['Gene symbol'].values]
+    gene_dfs = {
+        g: df_to_apex_data_single_gene(
+            filtered_df_single_gene(color_df, g).drop(columns=['Data type', 'Gene symbol']),
+            actual_df
+        )
+        for g in genes
+    }
+
+    return jsonify({
+        'series': gene_dfs,
+    })
+
+# phospho_df = pickle.load(open('../data/phospho.pkl', 'rb'))
+# mutation_df = pickle.load(open('../data/mutation.pkl', 'rb'))
+# mutation_color_df = pickle.load(open('../data/mutation_color.pkl', 'rb'))
+#
+# pathways = {
+#     'hallmark': pickle.load(open('../data/pathways/hallmark.pkl', 'rb')),
+#     'kegg': pickle.load(open('../data/pathways/kegg.pkl', 'rb')),
+#     'reactome': pickle.load(open('../data/pathways/reactome.pkl', 'rb')),
+# }
 
 
 # def df_to_apex_data(color_scale_df, actual_df, mutation_series_len):

@@ -1,9 +1,9 @@
 <template>
   <div class="input-container">
     <input-text-area />
-    <button-container />
-    <track-selector v-if="selectedView === 'all'"/>
-    <pathway-container />
+<!--    <button-container />-->
+<!--    <track-selector v-if="selectedView === 'all'"/>-->
+<!--    <pathway-container />-->
   </div>
 </template>
 
