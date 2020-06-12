@@ -14,6 +14,9 @@ import landingDataMutation from "./landingDataMutation.js";
 Vue.use(Vuex);
 
 //TODO (6/12): show phospho series with gene
+// add phospho to color and actual, with dt and name
+// create phospho: peptide dictionary
+// TODO: take away separator in clinical
 const apiRoot = 'http://127.0.0.1:5000/';
 
 export default new Vuex.Store({
