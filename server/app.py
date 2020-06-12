@@ -26,6 +26,7 @@ def filtered_df_single_gene(df, gene):
 
 
 def df_to_apex_data_single_gene(filtered_gene_df, actual):
+    # print(filtered_gene_df)
     series = [
         {
             'name': data_type,
@@ -42,8 +43,9 @@ def df_to_apex_data_single_gene(filtered_gene_df, actual):
         }
         for data_type, vals in filtered_gene_df.iterrows()
     ]
-    for s in series:
-        s['data'].insert(-7, {'x': 'separator', 'y': 1000, 'value': 'separator', 'gene': 'separator'})
+    phospho_start = [i for i, x in enumerate(filtered_gene_df.index) if 'phospho' in x][0]
+    blank_row = { 'name': '', 'data': [] }
+    series.insert(phospho_start, blank_row)
     return series[::-1]
 
 
