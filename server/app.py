@@ -21,6 +21,10 @@ top_series = pickle.load(open('../data/pickle/top_series.pkl', 'rb'))
 landing_data_series = pickle.load(open('../data/pickle/landing_data.pkl', 'rb'))
 
 
+def filtered_df(df, genes):
+    return df[(df['Gene symbol'].isin(genes)) | (df['Gene symbol'] == '')]
+
+
 def filtered_df_single_gene(df, gene):
     return df[df['Gene symbol'] == gene]
 
@@ -205,20 +209,20 @@ def landing_data():
 #     })
 #
 #
-# @app.route("/api/table/<genes_input>/")
-# def table(genes_input):
-#     genes = genes_input.split(' ')
-#
-#     filtered_scale = filtered_df(actual_vals, genes)
-#     df_list = filtered_scale.to_dict(orient='records')
-#
-#     for i, row in enumerate(df_list):
-#         row['idx'] = filtered_scale.index[i]
-#
-#     return jsonify({
-#         'excelData': df_list
-#     })
-#
+@app.route("/api/table/", methods=['POST'])
+@cross_origin()
+def table():
+    genes = json.loads(request.data)
+    filtered_scale = filtered_df(actual_df, genes)
+    df_list = filtered_scale.to_dict(orient='records')
+
+    for i, row in enumerate(df_list):
+        row['idx'] = filtered_scale.index[i]
+
+    return jsonify({
+        'excelData': df_list
+    })
+
 #
 # @app.route("/api/pathways/<db>/<pw>")
 # def pathway(db='', pw=''):

@@ -9,14 +9,14 @@
 <!--      <div class="specific-data" v-if="selectedView === 'mutation' && HGVSp_Short.length > 0">-->
 <!--          <b>HGVSp_Short:</b> {{ HGVSp_Short }}-->
 <!--      </div>-->
-<!--      <div class="sort-buttons" v-if="genes.length <= 30">-->
-<!--        <button @click="sort(ascending=true)" style="background-color: lightgray;">-->
-<!--          Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}-->
-<!--        </button>-->
-<!--        <button @click="sort(ascending=false)" style="background-color: lightgray;">-->
-<!--          Sort {{ this.series.length ? `by ${this.series}: descending` : '' }}-->
-<!--        </button>-->
-<!--      </div>-->
+      <div class="sort-buttons" v-if="genes.length <= 30">
+        <button @click="sort(ascending=true)" style="background-color: lightgray;">
+          Sort {{ this.series.length ? `by ${this.series}: ascending` : '' }}
+        </button>
+        <button @click="sort(ascending=false)" style="background-color: lightgray;">
+          Sort {{ this.series.length ? `by ${this.series}: descending` : '' }}
+        </button>
+      </div>
 <!--      <div class="sort-buttons-alert specific-data" v-if="!(genes.length <= 30)">-->
 <!--        Shorten gene list to 30 genes or less to enable track sorting.-->
 <!--      </div>-->
