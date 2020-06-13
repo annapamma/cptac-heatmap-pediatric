@@ -75,7 +75,7 @@ def submit_genes():
 @cross_origin()
 def clinical_data():
     return jsonify({
-        'series': top_series,
+        'series': clinical_data,
     })
 
 
@@ -83,7 +83,8 @@ def clinical_data():
 @cross_origin()
 def landing_data():
     return jsonify({
-        'series': landing_data_series,
+        'topSeries': top_series,
+        'landingData': landing_data_series,
     })
 # phospho_df = pickle.load(open('../data/phospho.pkl', 'rb'))
 # mutation_df = pickle.load(open('../data/mutation.pkl', 'rb'))

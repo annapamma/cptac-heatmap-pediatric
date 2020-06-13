@@ -46,5 +46,10 @@ export default {
     display: flex;
     flex-direction: row;
     height: 85%;
+    margin-top: 20px;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 </style>

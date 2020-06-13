@@ -35,10 +35,9 @@ export default {
   .input-container {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    min-width: 250px;
     height: 100%;
-    margin-top: 2px;
-      padding: 10px;
-      font-size: small;
+    padding: 0 10px;
+    font-size: small;
   }
 </style>

@@ -157,13 +157,13 @@ const colorsRanges = {
 1033: '#74cfeb', // proteo cl:Ganglio-rich
 1034: '#493d8c', // proteo cl:LGG-BRAF-WT-rich
 1035: '#b3a3f3', // proteo cl:LGG-BRAF-Fusion-rich
-1036: '#00FFFF', // diagnosis: Ganglioglioma
-1037: '#00FF40', // diagnosis: Ependymoma
-1038: '#FFBF00', // diagnosis: Craniopharyngioma
-1039: '#9F72FF', // diagnosis: Low-grade glioma/astrocytoma
-1040: '#3249DC', // diagnosis: High-grade glioma/astrocytoma
-1041: '#B30303', // diagnosis: Atypical Teratoid Rhabdoid Tumor (ATRT)
-1042: '#FF7ECF', // diagnosis: Medulloblastoma
+1036: '#FFBF00', // diagnosis: Craniopharyngioma
+1037: '#9F72FF', // diagnosis: Low-grade glioma/astrocytoma
+1038: '#3249DC', // diagnosis: High-grade glioma/astrocytoma
+1039: '#00FFFF', // diagnosis: Ganglioglioma
+1040: '#00FF40', // diagnosis: Ependymoma
+1041: '#FF7ECF', // diagnosis: Medulloblastoma
+1042: '#B30303', // diagnosis: Atypical Teratoid Rhabdoid Tumor (ATRT)
 1043: '#7FC97F', // Last Known Clinical Status: Alive
 1044: '#F0027F', // Last Known Clinical Status: Deceased-due to disease
 1045: '#386CB0', // Last Known Clinical Status: Deceased-due to other causes
