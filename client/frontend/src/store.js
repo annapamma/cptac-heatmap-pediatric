@@ -14,9 +14,10 @@ import landingDataMutation from "./landingDataMutation.js";
 Vue.use(Vuex);
 
 //TODO (6/12): phospho view
-// select by diagnosis
-// group landing data dl to single dl
+// restore pathway
 // gene details
+// add loading state
+// add legend
 const apiRoot = 'http://127.0.0.1:5000/';
 
 export default new Vuex.Store({
@@ -251,7 +252,6 @@ export default new Vuex.Store({
             genes
       ).then(
         ({ data }) => {
-          console.log(data)
           const ws = utils.json_to_sheet(
             data.excelData,
             {
@@ -328,18 +328,6 @@ export default new Vuex.Store({
           console.error('FetchError: ', e.message);
         },
       );
-      // axios.get(
-      //   `${apiRoot}api/landing_data/`)
-      // .then(
-      //   ({ data }) => {
-      //     console.log('data ', data)
-      //     store.commit('UPDATE_SERIES', data.series)
-      //   },
-      // ).catch(
-      //   (e) => {
-      //     console.error('FetchError: ', e.message);
-      //   },
-      // );
     },
     setPathwayIsSelected(store, pathwayIsSelected) {
       store.commit('UPDATE_PW_SELECTED', pathwayIsSelected);
